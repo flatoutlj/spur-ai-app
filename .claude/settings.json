@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "defaultMode": "bypassPermissions",
+    "additionalDirectories": [
+      "/Users/lapoldeonwilliams/spur-ai",
+      "/Users/lapoldeonwilliams/spur-ai-app"
+    ]
+  },
+  "skipDangerousModePermissionPrompt": true,
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "STATUS=$(cat /Users/lapoldeonwilliams/spur-ai-app/.claude/last_status.txt 2>/dev/null || echo 'Claude stopped. Check conversation for latest update.'); curl -s -X POST https://ntfy.sh/spur-ai-founder-os -d \"$STATUS\" -H 'Title: Spur AI — Claude Stopped (check conversation)' -H 'Priority: default' -H 'Tags: brain,stopwatch' 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -s -X POST https://ntfy.sh/spur-ai-founder-os -d 'Claude Code session started. Building Spur AI MVP.' -H 'Title: Spur AI — Session Started' -H 'Priority: low' -H 'Tags: green_circle' 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}
