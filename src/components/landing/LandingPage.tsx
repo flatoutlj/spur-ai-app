@@ -11,6 +11,7 @@ import Testimonials from "./Testimonials"
 import FAQ from "./FAQ"
 import CTASection from "./CTASection"
 import Footer from "./Footer"
+import ExitIntentPopup from "./ExitIntentPopup"
 
 export default function LandingPage() {
   const [email, setEmail] = useState("")
@@ -27,6 +28,7 @@ export default function LandingPage() {
       <FAQ />
       <CTASection email={email} setEmail={setEmail} />
       <Footer />
+      <ExitIntentPopup />
     </div>
   )
 }

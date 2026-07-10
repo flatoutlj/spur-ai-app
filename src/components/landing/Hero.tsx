@@ -1,6 +1,6 @@
 "use client"
 
-import Link from "next/link"
+import { useState } from "react"
 
 interface HeroProps {
   email: string
@@ -8,11 +8,20 @@ interface HeroProps {
 }
 
 export default function Hero({ email, setEmail }: HeroProps) {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (email) {
-      window.location.href = `/signup?email=${encodeURIComponent(email)}`
-    }
+    if (!email) return
+    setLoading(true)
+    try {
+      await fetch("/api/email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "hero" }),
+      })
+    } catch {}
+    window.location.href = `/signup?email=${encodeURIComponent(email)}`
   }
 
   return (
@@ -46,9 +55,10 @@ export default function Hero({ email, setEmail }: HeroProps) {
           />
           <button
             type="submit"
-            className="gradient-bg text-white font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity text-base whitespace-nowrap glow-pulse"
+            disabled={loading}
+            className="gradient-bg text-white font-semibold px-8 py-4 rounded-full hover:opacity-90 transition-opacity text-base whitespace-nowrap glow-pulse disabled:opacity-70"
           >
-            Start for free →
+            {loading ? "Loading…" : "Start for free →"}
           </button>
         </form>
 

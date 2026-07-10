@@ -1,16 +1,27 @@
 "use client"
 
+import { useState } from "react"
+
 interface CTAProps {
   email: string
   setEmail: (email: string) => void
 }
 
 export default function CTASection({ email, setEmail }: CTAProps) {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (email) {
-      window.location.href = `/signup?email=${encodeURIComponent(email)}`
-    }
+    if (!email) return
+    setLoading(true)
+    try {
+      await fetch("/api/email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "cta" }),
+      })
+    } catch {}
+    window.location.href = `/signup?email=${encodeURIComponent(email)}`
   }
 
   return (
@@ -37,9 +48,10 @@ export default function CTASection({ email, setEmail }: CTAProps) {
               />
               <button
                 type="submit"
-                className="bg-white text-blue-600 font-bold px-8 py-4 rounded-full hover:bg-blue-50 transition-colors text-base whitespace-nowrap"
+                disabled={loading}
+                className="bg-white text-blue-600 font-bold px-8 py-4 rounded-full hover:bg-blue-50 transition-colors text-base whitespace-nowrap disabled:opacity-70"
               >
-                Start free trial →
+                {loading ? "Loading…" : "Start free trial →"}
               </button>
             </form>
             <p className="text-blue-200 text-sm">

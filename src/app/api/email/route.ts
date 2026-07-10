@@ -7,6 +7,16 @@ export async function POST(request: Request) {
       return Response.json({ error: "Valid email required" }, { status: 400 })
     }
 
+    // Always persist to Supabase regardless of Resend
+    const { createClient } = await import("@supabase/supabase-js")
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!
+    )
+    await supabase
+      .from("email_captures")
+      .upsert({ email, source, created_at: new Date().toISOString() }, { onConflict: "email" })
+
     if (process.env.RESEND_API_KEY) {
       const { Resend } = await import("resend")
       const resend = new Resend(process.env.RESEND_API_KEY)
