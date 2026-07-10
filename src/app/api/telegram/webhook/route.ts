@@ -3,7 +3,7 @@ import { createClient } from "@supabase/supabase-js"
 
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN
 const OWNER_CHAT_ID = process.env.TELEGRAM_OWNER_CHAT_ID
-const ADMIN_EMAIL = "lapoldeonwill@gmail.com"
+const NTFY_TOPIC = "spur-ai-lapoldeon"
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -17,6 +17,18 @@ async function sendTelegramMessage(chatId: string | number, text: string) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ chat_id: chatId, text, parse_mode: "Markdown" }),
   })
+}
+
+async function forwardToNtfy(chatId: string | number, from: string, text: string) {
+  await fetch(`https://ntfy.sh/${NTFY_TOPIC}`, {
+    method: "POST",
+    body: `[Telegram @${from} (${chatId})]: ${text}`,
+    headers: {
+      Title: "Spur AI — Telegram Message",
+      Priority: "high",
+      Tags: "speech_balloon",
+    },
+  }).catch(() => {})
 }
 
 async function getStats() {
@@ -35,24 +47,46 @@ export async function POST(req: NextRequest) {
     if (!message) return NextResponse.json({ ok: true })
 
     const chatId = message.chat.id
+    const from = message.from?.username ?? message.from?.first_name ?? "unknown"
     const text = (message.text ?? "").trim()
 
-    if (String(chatId) !== String(OWNER_CHAT_ID) && OWNER_CHAT_ID) {
-      await sendTelegramMessage(chatId, "Unauthorized.")
+    const isOwner = !OWNER_CHAT_ID || String(chatId) === String(OWNER_CHAT_ID)
+
+    if (!isOwner) {
+      await sendTelegramMessage(chatId, "This is a private bot.")
       return NextResponse.json({ ok: true })
     }
 
+    await forwardToNtfy(chatId, from, text)
+
     if (text === "/start") {
-      await sendTelegramMessage(chatId, `*Spur AI Founder OS* ready.\n\nCommands:\n/stats — live metrics\n/tasks — your action items\n/help — show this`)
+      await sendTelegramMessage(
+        chatId,
+        `*Spur AI Founder OS* ready 🚀\n\nYour chat ID: \`${chatId}\`\n\nCommands:\n/stats — live metrics\n/tasks — your action items\n/mrr — revenue update\n/help — all commands`
+      )
     } else if (text === "/stats") {
       const s = await getStats()
-      await sendTelegramMessage(chatId, `*Spur AI Live Metrics*\n\n💰 MRR: $0\n👥 Users: ${s.users}\n✍️ Posts: ${s.posts}\n📧 Leads: ${s.leads}\n\nGoal: $1,000 MRR`)
+      await sendTelegramMessage(
+        chatId,
+        `*Spur AI — Live Metrics*\n\n💰 MRR: $0\n👥 Users: ${s.users}\n✍️ Posts Generated: ${s.posts}\n📧 Email Leads: ${s.leads}\n\nGoal: $1,000 MRR in 30 days`
+      )
+    } else if (text === "/mrr") {
+      await sendTelegramMessage(chatId, `💰 MRR: $0\n\nNext milestone: First paying customer\nNeeded: ~7 Starter ($149/mo) or 4 Growth ($249/mo)`)
     } else if (text === "/tasks") {
-      await sendTelegramMessage(chatId, `*Your Action Items*\n\n🔴 Set up Stripe → get keys\n🔴 @BotFather → /newbot → send token\n🟡 Set up Resend email\n🟡 Post Day 1 LinkedIn content\n🟢 trispur.com/admin for CEO dashboard`)
+      await sendTelegramMessage(
+        chatId,
+        `*Your Action Items*\n\n🔴 Set up Stripe → paste keys in Vercel\n🔴 Set Resend API key in Vercel\n🟡 Post Day 1 LinkedIn content\n🟡 Send 10 LinkedIn cold DMs today\n🟢 CEO dashboard: trispur.com/admin\n🟢 Telegram bot: active ✓`
+      )
     } else if (text === "/help") {
-      await sendTelegramMessage(chatId, `/stats — live metrics\n/tasks — action items\n/help — commands`)
+      await sendTelegramMessage(
+        chatId,
+        `/stats — live metrics\n/tasks — action items\n/mrr — revenue status\n/help — this menu`
+      )
     } else {
-      await sendTelegramMessage(chatId, `Received: "${text}"\n\nI'm your Spur AI bot. Use /help to see commands.`)
+      await sendTelegramMessage(
+        chatId,
+        `Got it: "${text}"\n\nUse /help to see available commands, or message Claude Code directly if at your computer.`
+      )
     }
 
     return NextResponse.json({ ok: true })
