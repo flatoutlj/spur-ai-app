@@ -6,5 +6,11 @@
   "regions": ["iad1"],
   "env": {
     "NEXT_PUBLIC_APP_URL": "https://trispur.com"
-  }
+  },
+  "crons": [
+    {
+      "path": "/api/cron/daily-report",
+      "schedule": "0 9 * * *"
+    }
+  ]
 }
