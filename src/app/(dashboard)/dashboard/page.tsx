@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, use } from "react"
+import { useState, useEffect, use } from "react"
 import PostGenerator from "@/components/dashboard/PostGenerator"
 import ContentCalendar from "@/components/dashboard/ContentCalendar"
 import PostHistory from "@/components/dashboard/PostHistory"
@@ -19,6 +19,23 @@ export default function DashboardPage({
   const params = use(searchParams)
   const initialTab = (params.tab as Tab) || "generate"
   const [activeTab, setActiveTab] = useState<Tab>(initialTab)
+  const [firstName, setFirstName] = useState<string>("")
+  const [postCount, setPostCount] = useState<number>(0)
+
+  useEffect(() => {
+    fetch("/api/profile")
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.profile?.full_name) {
+          setFirstName(d.profile.full_name.split(" ")[0])
+        }
+      })
+      .catch(() => {})
+    fetch("/api/posts")
+      .then((r) => r.json())
+      .then((d) => { if (d.posts) setPostCount(d.posts.length) })
+      .catch(() => {})
+  }, [])
 
   const tabs: { id: Tab; label: string; icon: string }[] = [
     { id: "generate", label: "Generate", icon: "✍️" },
@@ -29,6 +46,8 @@ export default function DashboardPage({
     { id: "analytics", label: "Analytics", icon: "📊" },
   ]
 
+  const greeting = firstName ? `Welcome back, ${firstName} 👋` : "Welcome back 👋"
+
   return (
     <div className="min-h-screen bg-gray-50">
       <DashboardNav />
@@ -36,10 +55,10 @@ export default function DashboardPage({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12">
         <div className="mb-8">
           <div className="flex items-center justify-between mb-2">
-            <h1 className="text-2xl font-bold text-gray-900">Welcome back 👋</h1>
+            <h1 className="text-2xl font-bold text-gray-900">{greeting}</h1>
             <div className="flex items-center gap-2 text-sm text-gray-500">
               <div className="w-2 h-2 rounded-full bg-green-400" />
-              14 days left in trial
+              14-day free trial
             </div>
           </div>
           <p className="text-gray-500">Ready to create content that gets you clients today?</p>
@@ -67,7 +86,7 @@ export default function DashboardPage({
         {activeTab === "calendar" && <ContentCalendar />}
         {activeTab === "history" && <PostHistory />}
         {activeTab === "hooks" && <HooksLibrary />}
-        {activeTab === "analytics" && <Analytics />}
+        {activeTab === "analytics" && <Analytics postCount={postCount} />}
       </div>
     </div>
   )

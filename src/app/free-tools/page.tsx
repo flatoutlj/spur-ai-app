@@ -4,7 +4,7 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "Free LinkedIn Tools for B2B Professionals | Spur AI",
   description:
-    "Free LinkedIn tools: post generator, hooks library, content ideas generator, and headline generator. Built for B2B consultants, coaches, and agency owners.",
+    "Free LinkedIn tools: post generator, hooks library, content ideas generator, headline generator, and bio generator. Built for B2B consultants, coaches, and agency owners.",
   keywords: [
     "free linkedin tools",
     "linkedin content tools free",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Free LinkedIn Tools for B2B Professionals | Spur AI",
     description:
-      "4 free LinkedIn tools to grow your presence and generate inbound leads — post generator, hooks library, content ideas, and headline generator.",
+      "5 free LinkedIn tools to grow your presence and generate inbound leads — post generator, hooks library, content ideas, headline generator, and bio generator.",
     type: "website",
     url: "https://trispur.com/free-tools",
   },
@@ -70,6 +70,18 @@ const tools = [
     icon: "🎯",
     iconBg: "bg-orange-50",
     cta: "Generate your headline →",
+  },
+  {
+    title: "LinkedIn Bio Generator",
+    url: "/tools/linkedin-bio-generator",
+    badge: "New",
+    badgeColor: "bg-pink-100 text-pink-700 border-pink-200",
+    description:
+      "Generate 5 LinkedIn About section variations in seconds. Enter your role, ideal client, results, and CTA — get a ready-to-paste bio in every format.",
+    keywords: ["linkedin bio generator", "linkedin about section", "linkedin profile bio"],
+    icon: "📝",
+    iconBg: "bg-pink-50",
+    cta: "Generate your bio →",
   },
 ]
 
@@ -155,14 +167,14 @@ export default function FreeToolsPage() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-200 rounded-full px-4 py-1.5 mb-6">
             <span className="text-blue-700 text-sm font-medium">
-              4 free tools · No signup required
+              5 free tools · No signup required
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-5">
             Free LinkedIn Tools for B2B Professionals
           </h1>
           <p className="text-xl text-gray-500 max-w-2xl mx-auto">
-            Post generators, hooks, content ideas, and headline formulas — everything you need
+            Post generators, hooks, content ideas, headline and bio formulas — everything you need
             to start growing on LinkedIn today. 100% free, no email required.
           </p>
         </div>
