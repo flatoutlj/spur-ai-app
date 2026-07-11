@@ -2,6 +2,12 @@ const BASE = "https://trispur.com"
 
 const POSTS = [
   {
+    slug: "linkedin-post-ideas",
+    title: "50 LinkedIn Post Ideas for B2B Professionals (2026) — Never Run Out of Content",
+    description: "50 proven LinkedIn post ideas for consultants, coaches, and agency owners — with hooks and frameworks organized by content type.",
+    date: "2026-07-11",
+  },
+  {
     slug: "linkedin-summary-examples",
     title: "10 LinkedIn Summary Examples That Convert Visitors into Clients (2026)",
     description: "Real LinkedIn About section examples for B2B consultants, coaches, and agency owners — with templates and the exact formula for writing a summary that generates inbound leads.",

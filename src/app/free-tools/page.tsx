@@ -4,7 +4,7 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "Free LinkedIn Tools for B2B Professionals | Spur AI",
   description:
-    "6 free LinkedIn tools: post generator, content calendar, bio, headline, hooks, content ideas. Built for B2B consultants, coaches, and agency owners.",
+    "7 free LinkedIn tools: post generator, content calendar, bio, headline, hooks, content ideas, profile optimizer. Built for B2B consultants, coaches, and agency owners.",
   keywords: [
     "free linkedin tools",
     "linkedin content tools free",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Free LinkedIn Tools for B2B Professionals | Spur AI",
     description:
-      "6 free LinkedIn tools: post generator, content calendar, bio generator, headline generator, hooks library, and content ideas. No signup required.",
+      "7 free LinkedIn tools: post generator, content calendar, bio generator, headline generator, hooks library, content ideas, and profile optimizer. No signup required.",
     type: "website",
     url: "https://trispur.com/free-tools",
   },
@@ -94,6 +94,18 @@ const tools = [
     icon: "📅",
     iconBg: "bg-teal-50",
     cta: "Plan your calendar →",
+  },
+  {
+    title: "LinkedIn Profile Optimizer",
+    url: "/tools/linkedin-profile-optimizer",
+    badge: "Checklist",
+    badgeColor: "bg-indigo-100 text-indigo-700 border-indigo-200",
+    description:
+      "Complete a 20-point interactive checklist to score your LinkedIn profile out of 100. Get your optimization score and find out exactly what to fix to attract B2B clients.",
+    keywords: ["linkedin profile optimizer", "linkedin profile checklist", "linkedin profile score"],
+    icon: "✅",
+    iconBg: "bg-indigo-50",
+    cta: "Check my profile score →",
   },
 ]
 
@@ -179,7 +191,7 @@ export default function FreeToolsPage() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-200 rounded-full px-4 py-1.5 mb-6">
             <span className="text-blue-700 text-sm font-medium">
-              6 free tools · No signup required
+              7 free tools · No signup required
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-5">

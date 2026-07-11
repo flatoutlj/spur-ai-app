@@ -25,6 +25,15 @@ export const metadata: Metadata = {
 
 const POSTS = [
   {
+    slug: "linkedin-post-ideas",
+    title: "50 LinkedIn Post Ideas for B2B Professionals (2026) — Never Run Out of Content",
+    description:
+      "50 proven LinkedIn post ideas for consultants, coaches, and agency owners — with example hooks and frameworks organized by content type.",
+    category: "Content Ideas",
+    readTime: "8 min read",
+    volume: "8,100/mo",
+  },
+  {
     slug: "linkedin-networking-tips",
     title: "17 LinkedIn Networking Tips That Actually Build Business Relationships (2026)",
     description:
@@ -117,6 +126,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   "Consulting": "bg-indigo-50 text-indigo-700 border-indigo-200",
   "Networking": "bg-emerald-50 text-emerald-700 border-emerald-200",
   "Profile Optimization": "bg-purple-50 text-purple-700 border-purple-200",
+  "Content Ideas": "bg-yellow-50 text-yellow-700 border-yellow-200",
 }
 
 const jsonLd = {
