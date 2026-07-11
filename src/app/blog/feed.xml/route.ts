@@ -2,6 +2,18 @@ const BASE = "https://trispur.com"
 
 const POSTS = [
   {
+    slug: "linkedin-outreach",
+    title: "LinkedIn Outreach: 8 DM Templates That Get Replies (2026 Guide)",
+    description: "8 LinkedIn DM scripts for cold outreach, follow-ups, referrals, and warm introductions — with tips on what works in 2026.",
+    date: "2026-07-11",
+  },
+  {
+    slug: "linkedin-algorithm",
+    title: "How the LinkedIn Algorithm Works in 2026 (And How to Beat It)",
+    description: "How LinkedIn decides which posts go viral, what kills reach, and the specific actions that maximize distribution in 2026.",
+    date: "2026-07-11",
+  },
+  {
     slug: "linkedin-post-ideas",
     title: "50 LinkedIn Post Ideas for B2B Professionals (2026) — Never Run Out of Content",
     description: "50 proven LinkedIn post ideas for consultants, coaches, and agency owners — with hooks and frameworks organized by content type.",

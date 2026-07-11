@@ -25,6 +25,24 @@ export const metadata: Metadata = {
 
 const POSTS = [
   {
+    slug: "linkedin-outreach",
+    title: "LinkedIn Outreach: 8 DM Templates That Get Replies (2026 Guide)",
+    description:
+      "LinkedIn outreach templates that actually get responses. 8 DM scripts for cold outreach, follow-ups, referrals, and warm introductions.",
+    category: "Outreach",
+    readTime: "10 min read",
+    volume: "10,000/mo",
+  },
+  {
+    slug: "linkedin-algorithm",
+    title: "How the LinkedIn Algorithm Works in 2026 (And How to Beat It)",
+    description:
+      "How LinkedIn decides which posts go viral, what kills reach, and the specific actions that maximize distribution in 2026.",
+    category: "Algorithm",
+    readTime: "11 min read",
+    volume: "6,000/mo",
+  },
+  {
     slug: "linkedin-post-ideas",
     title: "50 LinkedIn Post Ideas for B2B Professionals (2026) — Never Run Out of Content",
     description:
@@ -127,6 +145,8 @@ const CATEGORY_COLORS: Record<string, string> = {
   "Networking": "bg-emerald-50 text-emerald-700 border-emerald-200",
   "Profile Optimization": "bg-purple-50 text-purple-700 border-purple-200",
   "Content Ideas": "bg-yellow-50 text-yellow-700 border-yellow-200",
+  "Outreach": "bg-sky-50 text-sky-700 border-sky-200",
+  "Algorithm": "bg-slate-50 text-slate-700 border-slate-200",
 }
 
 const jsonLd = {
