@@ -25,6 +25,24 @@ export const metadata: Metadata = {
 
 const POSTS = [
   {
+    slug: "linkedin-networking-tips",
+    title: "17 LinkedIn Networking Tips That Actually Build Business Relationships (2026)",
+    description:
+      "Stop collecting connections. These 17 LinkedIn networking tips help B2B professionals build real relationships that lead to referrals, partnerships, and paying clients.",
+    category: "Networking",
+    readTime: "10 min read",
+    volume: "18,000/mo",
+  },
+  {
+    slug: "linkedin-summary-examples",
+    title: "10 LinkedIn Summary Examples That Convert Visitors into Clients (2026)",
+    description:
+      "Real LinkedIn About section examples for B2B consultants, coaches, and agency owners — with templates and the formula for writing a summary that generates inbound leads.",
+    category: "Profile Optimization",
+    readTime: "9 min read",
+    volume: "14,000/mo",
+  },
+  {
     slug: "linkedin-lead-generation",
     title: "LinkedIn Lead Generation: 9 Strategies That Fill Your Pipeline (2026)",
     description:
@@ -97,6 +115,8 @@ const CATEGORY_COLORS: Record<string, string> = {
   "B2B Sales": "bg-red-50 text-red-700 border-red-200",
   "Content Marketing": "bg-teal-50 text-teal-700 border-teal-200",
   "Consulting": "bg-indigo-50 text-indigo-700 border-indigo-200",
+  "Networking": "bg-emerald-50 text-emerald-700 border-emerald-200",
+  "Profile Optimization": "bg-purple-50 text-purple-700 border-purple-200",
 }
 
 const jsonLd = {

@@ -35,6 +35,7 @@ export default function LinkedInPostGeneratorTool() {
   const [gateEmail, setGateEmail] = useState("")
   const [gateSubmitting, setGateSubmitting] = useState(false)
   const [gateUnlocked, setGateUnlocked] = useState(false)
+  const [gateSuccess, setGateSuccess] = useState(false)
   const [copied, setCopied] = useState(false)
 
   useEffect(() => {
@@ -89,11 +90,15 @@ export default function LinkedInPostGeneratorTool() {
       })
     } catch {}
     setGateUnlocked(true)
-    setShowGate(false)
     setGateSubmitting(false)
+    setGateSuccess(true)
     sessionStorage.setItem(SESSION_KEY, "0")
     setGenCount(0)
-    generate()
+    setTimeout(() => {
+      setShowGate(false)
+      setGateSuccess(false)
+      generate()
+    }, 2800)
   }
 
   const handleCopy = () => {
@@ -110,36 +115,59 @@ export default function LinkedInPostGeneratorTool() {
       {showGate && (
         <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl">
-            <div className="text-3xl mb-3 text-center">✍️</div>
-            <h3 className="text-xl font-bold text-gray-900 text-center mb-2">
-              You&apos;ve used your 3 free posts
-            </h3>
-            <p className="text-gray-500 text-center text-sm mb-6">
-              Enter your email to unlock unlimited free generations — no credit card required.
-            </p>
-            <form onSubmit={handleGateSubmit} className="space-y-3">
-              <input
-                type="email"
-                value={gateEmail}
-                onChange={(e) => setGateEmail(e.target.value)}
-                placeholder="your@email.com"
-                required
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-              />
-              <button
-                type="submit"
-                disabled={gateSubmitting}
-                className="w-full bg-gradient-to-r from-blue-600 to-violet-600 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-60 text-sm"
-              >
-                {gateSubmitting ? "Unlocking..." : "Unlock unlimited free posts →"}
-              </button>
-            </form>
-            <p className="text-center text-xs text-gray-400 mt-3">
-              No spam. Unsubscribe anytime.{" "}
-              <button onClick={() => setShowGate(false)} className="text-blue-600 hover:underline">
-                Maybe later
-              </button>
-            </p>
+            {gateSuccess ? (
+              <div className="text-center">
+                <div className="text-4xl mb-3">🎉</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-1">Unlimited posts unlocked!</h3>
+                <p className="text-gray-400 text-sm mb-5">Generating your post now...</p>
+                <div className="bg-gradient-to-br from-blue-50 to-violet-50 border border-blue-100 rounded-xl p-4 text-left mb-3">
+                  <p className="text-sm font-semibold text-gray-900 mb-1">Want posts in your voice?</p>
+                  <p className="text-xs text-gray-500 leading-relaxed mb-3">
+                    Spur AI trains on your writing style — every post sounds like you, not a bot. Save posts, schedule content, and track what converts.
+                  </p>
+                  <Link
+                    href="/signup"
+                    className="block w-full gradient-bg text-white text-sm font-semibold py-2.5 rounded-xl hover:opacity-90 transition-opacity text-center"
+                  >
+                    Start 14-day free trial →
+                  </Link>
+                  <p className="text-center text-xs text-gray-400 mt-2">No credit card required</p>
+                </div>
+              </div>
+            ) : (
+              <>
+                <div className="text-3xl mb-3 text-center">✍️</div>
+                <h3 className="text-xl font-bold text-gray-900 text-center mb-2">
+                  You&apos;ve used your 3 free posts
+                </h3>
+                <p className="text-gray-500 text-center text-sm mb-6">
+                  Enter your email to unlock unlimited free generations — no credit card required.
+                </p>
+                <form onSubmit={handleGateSubmit} className="space-y-3">
+                  <input
+                    type="email"
+                    value={gateEmail}
+                    onChange={(e) => setGateEmail(e.target.value)}
+                    placeholder="your@email.com"
+                    required
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                  />
+                  <button
+                    type="submit"
+                    disabled={gateSubmitting}
+                    className="w-full bg-gradient-to-r from-blue-600 to-violet-600 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-60 text-sm"
+                  >
+                    {gateSubmitting ? "Unlocking..." : "Unlock unlimited free posts →"}
+                  </button>
+                </form>
+                <p className="text-center text-xs text-gray-400 mt-3">
+                  No spam. Unsubscribe anytime.{" "}
+                  <button onClick={() => setShowGate(false)} className="text-blue-600 hover:underline">
+                    Maybe later
+                  </button>
+                </p>
+              </>
+            )}
           </div>
         </div>
       )}

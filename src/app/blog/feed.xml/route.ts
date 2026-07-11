@@ -2,6 +2,18 @@ const BASE = "https://trispur.com"
 
 const POSTS = [
   {
+    slug: "linkedin-summary-examples",
+    title: "10 LinkedIn Summary Examples That Convert Visitors into Clients (2026)",
+    description: "Real LinkedIn About section examples for B2B consultants, coaches, and agency owners — with templates and the exact formula for writing a summary that generates inbound leads.",
+    date: "2026-07-11",
+  },
+  {
+    slug: "linkedin-networking-tips",
+    title: "17 LinkedIn Networking Tips That Actually Build Business Relationships (2026)",
+    description: "Stop collecting connections. These 17 LinkedIn networking tips help B2B professionals build real relationships that lead to referrals, partnerships, and paying clients.",
+    date: "2026-07-11",
+  },
+  {
     slug: "linkedin-lead-generation",
     title: "LinkedIn Lead Generation: 9 Strategies That Fill Your Pipeline (2026)",
     description: "The 9 best LinkedIn lead generation strategies for B2B professionals. From content-led inbound to warm DM sequences — how top consultants get clients from LinkedIn.",
