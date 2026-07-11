@@ -84,6 +84,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${base}/blog/linkedin-lead-generation`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${base}/blog/linkedin-personal-branding`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${base}/blog/b2b-content-marketing-linkedin`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${base}/blog`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: `${base}/tools/linkedin-profile-optimizer`,
       lastModified: now,
       changeFrequency: "monthly",
