@@ -1,45 +1,15 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
-const SAMPLE_HISTORY = [
-  {
-    id: "1",
-    title: "Why I fired my $50K client",
-    preview: "I wasted 6 months working with the wrong client. Not because they didn't pay — they did, on time, every month. But because they were slowly killing my team's morale...",
-    framework: "Story",
-    createdAt: "2026-07-09",
-    status: "published",
-    engagement: { likes: 247, comments: 89, reposts: 34 },
-  },
-  {
-    id: "2",
-    title: "3 pricing mistakes agencies make",
-    preview: "After reviewing 100+ agency proposals, I see the same 3 mistakes costing founders $50K-$200K per year. Here's what I found...",
-    framework: "List",
-    createdAt: "2026-07-08",
-    status: "scheduled",
-    engagement: null,
-  },
-  {
-    id: "3",
-    title: "Cold outreach is dead",
-    preview: "Hot take: Cold outreach is no longer the fastest path to B2B clients. Here's what's replacing it and why...",
-    framework: "Insight",
-    createdAt: "2026-07-07",
-    status: "draft",
-    engagement: null,
-  },
-  {
-    id: "4",
-    title: "How we 3x'd revenue in 90 days",
-    preview: "Q1 this year: $28K MRR. Q2: $87K MRR. Here's the exact 3 moves that made the difference...",
-    framework: "Case Study",
-    createdAt: "2026-07-05",
-    status: "published",
-    engagement: { likes: 412, comments: 156, reposts: 78 },
-  },
-]
+interface Post {
+  id: string
+  content: string
+  topic: string
+  framework: string
+  created_at: string
+  status: string
+}
 
 const STATUS_BADGES: Record<string, string> = {
   published: "bg-green-50 text-green-700 border border-green-200",
@@ -47,17 +17,58 @@ const STATUS_BADGES: Record<string, string> = {
   draft: "bg-gray-50 text-gray-600 border border-gray-200",
 }
 
-export default function PostHistory() {
-  const [filter, setFilter] = useState<"all" | "published" | "scheduled" | "draft">("all")
+const FRAMEWORK_LABELS: Record<string, string> = {
+  story: "Story",
+  insight: "Insight",
+  howto: "How-To",
+  list: "List",
+  case_study: "Case Study",
+  question: "Question",
+  mistake: "Mistake",
+  comparison: "Comparison",
+  prediction: "Prediction",
+  confession: "Confession",
+}
 
-  const filtered = filter === "all" ? SAMPLE_HISTORY : SAMPLE_HISTORY.filter(p => p.status === filter)
+export default function PostHistory() {
+  const [posts, setPosts] = useState<Post[]>([])
+  const [loading, setLoading] = useState(true)
+  const [filter, setFilter] = useState<"all" | "published" | "scheduled" | "draft">("all")
+  const [copiedId, setCopiedId] = useState<string | null>(null)
+
+  useEffect(() => {
+    fetch("/api/posts")
+      .then((r) => r.json())
+      .then((d) => { if (d.posts) setPosts(d.posts) })
+      .catch(() => {})
+      .finally(() => setLoading(false))
+  }, [])
+
+  const filtered = filter === "all" ? posts : posts.filter((p) => p.status === filter)
+
+  const copyPost = async (post: Post) => {
+    await navigator.clipboard.writeText(post.content)
+    setCopiedId(post.id)
+    setTimeout(() => setCopiedId(null), 2000)
+  }
+
+  const formatDate = (iso: string) => {
+    return new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
+  }
+
+  const getPreview = (content: string) => content.slice(0, 160).trim()
+
+  const getTitle = (post: Post) =>
+    post.topic && post.topic.length > 0
+      ? post.topic.length > 60 ? post.topic.slice(0, 60) + "…" : post.topic
+      : post.content.split("\n")[0].slice(0, 60)
 
   return (
     <div className="bg-white rounded-2xl border border-gray-100 p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
           <h2 className="font-semibold text-gray-900 text-lg">Post History</h2>
-          <p className="text-gray-500 text-sm">All your generated and published posts</p>
+          <p className="text-gray-500 text-sm">{posts.length} generated posts</p>
         </div>
         <div className="flex gap-1 bg-gray-100 rounded-lg p-1">
           {(["all", "published", "scheduled", "draft"] as const).map((f) => (
@@ -74,39 +85,51 @@ export default function PostHistory() {
         </div>
       </div>
 
+      {loading && (
+        <div className="flex items-center justify-center py-16">
+          <div className="w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
+        </div>
+      )}
+
+      {!loading && filtered.length === 0 && (
+        <div className="flex flex-col items-center justify-center py-16 text-center">
+          <div className="text-3xl mb-3">📝</div>
+          <p className="text-gray-500 text-sm">
+            {posts.length === 0
+              ? "No posts yet — generate your first post above"
+              : "No posts match this filter"}
+          </p>
+        </div>
+      )}
+
       <div className="space-y-4">
         {filtered.map((post) => (
           <div key={post.id} className="border border-gray-100 rounded-xl p-5 hover:border-gray-200 transition-colors">
             <div className="flex items-start justify-between gap-4 mb-2">
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
-                  <h3 className="font-semibold text-gray-900 text-sm truncate">{post.title}</h3>
-                  <span className={`text-xs px-2 py-0.5 rounded-full font-medium flex-shrink-0 ${STATUS_BADGES[post.status]}`}>
+                  <h3 className="font-semibold text-gray-900 text-sm truncate">{getTitle(post)}</h3>
+                  <span className={`text-xs px-2 py-0.5 rounded-full font-medium flex-shrink-0 ${STATUS_BADGES[post.status] ?? STATUS_BADGES.draft}`}>
                     {post.status}
                   </span>
                 </div>
-                <p className="text-gray-500 text-xs line-clamp-2">{post.preview}</p>
+                <p className="text-gray-500 text-xs line-clamp-2">{getPreview(post.content)}</p>
               </div>
               <div className="flex gap-2 flex-shrink-0">
-                <button className="text-xs text-gray-400 hover:text-blue-600 border border-gray-200 px-3 py-1.5 rounded-lg transition-colors">
-                  Edit
-                </button>
-                <button className="text-xs text-gray-400 hover:text-blue-600 border border-gray-200 px-3 py-1.5 rounded-lg transition-colors">
-                  Copy
+                <button
+                  onClick={() => copyPost(post)}
+                  className="text-xs text-gray-400 hover:text-blue-600 border border-gray-200 px-3 py-1.5 rounded-lg transition-colors"
+                >
+                  {copiedId === post.id ? "✓ Copied" : "Copy"}
                 </button>
               </div>
             </div>
 
             <div className="flex items-center gap-4 text-xs text-gray-400">
-              <span>{post.createdAt}</span>
-              <span className="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{post.framework}</span>
-              {post.engagement && (
-                <div className="flex items-center gap-3 ml-auto">
-                  <span>👍 {post.engagement.likes}</span>
-                  <span>💬 {post.engagement.comments}</span>
-                  <span>🔄 {post.engagement.reposts}</span>
-                </div>
-              )}
+              <span>{formatDate(post.created_at)}</span>
+              <span className="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
+                {FRAMEWORK_LABELS[post.framework] ?? post.framework}
+              </span>
             </div>
           </div>
         ))}
