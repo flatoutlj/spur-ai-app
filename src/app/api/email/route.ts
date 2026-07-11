@@ -30,15 +30,15 @@ export async function POST(request: Request) {
             <div style="margin-bottom: 32px;">
               <div style="display: inline-block; background: linear-gradient(135deg, #3b82f6, #8b5cf6); width: 40px; height: 40px; border-radius: 10px; line-height: 40px; text-align: center; color: white; font-weight: bold; font-size: 18px;">S</div>
             </div>
-            <h1 style="font-size: 28px; font-weight: 700; margin: 0 0 16px;">You're in 🎉</h1>
+            <h1 style="font-size: 28px; font-weight: 700; margin: 0 0 16px;">Here's what to do next</h1>
             <p style="font-size: 16px; line-height: 1.6; color: #555; margin: 0 0 24px;">
-              Thanks for joining the Spur AI waitlist. We're onboarding new users in batches to make sure everyone gets a great experience.
+              Thanks for trying Spur AI's free LinkedIn tools. The full product — AI posts trained on your voice, a content calendar, and personalized DM templates — is available now.
             </p>
             <p style="font-size: 16px; line-height: 1.6; color: #555; margin: 0 0 24px;">
-              <strong>You'll get early access within 48 hours</strong> — and a special discount for being one of the first in.
+              <strong>Start your free 14-day trial today</strong> — no credit card required, and founding member pricing is locked in for life when you join now.
             </p>
             <p style="font-size: 16px; line-height: 1.6; color: #555; margin: 0 0 32px;">
-              While you wait, here are 3 LinkedIn post hooks that consistently get 10x more engagement:
+              While you're deciding, here are 3 LinkedIn post hooks that consistently get 10x more engagement:
             </p>
             <div style="background: #f8fafc; border-radius: 12px; padding: 24px; margin: 0 0 32px;">
               <p style="margin: 0 0 16px; font-weight: 600;">Hook #1 — The confession:</p>
