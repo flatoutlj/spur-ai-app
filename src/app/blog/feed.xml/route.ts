@@ -2,6 +2,18 @@ const BASE = "https://trispur.com"
 
 const POSTS = [
   {
+    slug: "linkedin-marketing",
+    title: "LinkedIn Marketing: The Complete B2B Strategy Guide (2026)",
+    description: "Everything you need to know about LinkedIn marketing for B2B — profile optimization, content strategy, lead generation, paid ads, and measuring ROI.",
+    date: "2026-07-11",
+  },
+  {
+    slug: "linkedin-for-business",
+    title: "LinkedIn for Business: How to Get Clients and Generate Leads (2026)",
+    description: "How to use LinkedIn for business growth — profile setup, content strategy, and generating inbound leads for B2B professionals.",
+    date: "2026-07-11",
+  },
+  {
     slug: "linkedin-outreach",
     title: "LinkedIn Outreach: 8 DM Templates That Get Replies (2026 Guide)",
     description: "8 LinkedIn DM scripts for cold outreach, follow-ups, referrals, and warm introductions — with tips on what works in 2026.",

@@ -25,6 +25,24 @@ export const metadata: Metadata = {
 
 const POSTS = [
   {
+    slug: "linkedin-marketing",
+    title: "LinkedIn Marketing: The Complete B2B Strategy Guide (2026)",
+    description:
+      "Everything you need to know about LinkedIn marketing for B2B. Covers profile optimization, content strategy, lead generation, paid ads, and measuring ROI.",
+    category: "Marketing",
+    readTime: "14 min read",
+    volume: "20,000/mo",
+  },
+  {
+    slug: "linkedin-for-business",
+    title: "LinkedIn for Business: How to Get Clients and Generate Leads (2026)",
+    description:
+      "How to use LinkedIn for business growth — a practical guide for B2B professionals on building a business presence and converting connections into clients.",
+    category: "Business Growth",
+    readTime: "12 min read",
+    volume: "15,000/mo",
+  },
+  {
     slug: "linkedin-outreach",
     title: "LinkedIn Outreach: 8 DM Templates That Get Replies (2026 Guide)",
     description:
@@ -147,6 +165,8 @@ const CATEGORY_COLORS: Record<string, string> = {
   "Content Ideas": "bg-yellow-50 text-yellow-700 border-yellow-200",
   "Outreach": "bg-sky-50 text-sky-700 border-sky-200",
   "Algorithm": "bg-slate-50 text-slate-700 border-slate-200",
+  "Marketing": "bg-rose-50 text-rose-700 border-rose-200",
+  "Business Growth": "bg-lime-50 text-lime-700 border-lime-200",
 }
 
 const jsonLd = {
