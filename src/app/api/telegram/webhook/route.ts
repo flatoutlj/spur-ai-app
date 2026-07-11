@@ -32,12 +32,42 @@ async function forwardToNtfy(chatId: string | number, from: string, text: string
 }
 
 async function getStats() {
-  const [{ count: users }, { count: posts }, { count: leads }] = await Promise.all([
+  const dayAgo = new Date(Date.now() - 86400000).toISOString()
+  const [
+    { count: users },
+    { count: posts },
+    { count: leads },
+    { count: newUsers },
+    { count: newLeads },
+  ] = await Promise.all([
     supabase.from("profiles").select("*", { count: "exact", head: true }),
     supabase.from("posts").select("*", { count: "exact", head: true }),
     supabase.from("email_captures").select("*", { count: "exact", head: true }),
+    supabase.from("profiles").select("*", { count: "exact", head: true }).gte("created_at", dayAgo),
+    supabase.from("email_captures").select("*", { count: "exact", head: true }).gte("created_at", dayAgo),
   ])
-  return { users: users ?? 0, posts: posts ?? 0, leads: leads ?? 0 }
+  return {
+    users: users ?? 0,
+    posts: posts ?? 0,
+    leads: leads ?? 0,
+    newUsers: newUsers ?? 0,
+    newLeads: newLeads ?? 0,
+  }
+}
+
+async function getRecentLeads(limit = 5): Promise<string> {
+  const { data } = await supabase
+    .from("email_captures")
+    .select("email, source, created_at")
+    .order("created_at", { ascending: false })
+    .limit(limit)
+  if (!data || data.length === 0) return "No leads yet."
+  return data
+    .map((r) => {
+      const time = new Date(r.created_at).toLocaleDateString("en-US", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" })
+      return `• ${r.email} (${r.source ?? "landing"}) — ${time}`
+    })
+    .join("\n")
 }
 
 export async function POST(req: NextRequest) {
@@ -62,25 +92,36 @@ export async function POST(req: NextRequest) {
     if (text === "/start") {
       await sendTelegramMessage(
         chatId,
-        `*Spur AI Founder OS* ready 🚀\n\nYour chat ID: \`${chatId}\`\n\nCommands:\n/stats — live metrics\n/tasks — your action items\n/mrr — revenue update\n/help — all commands`
+        `*Spur AI Founder OS* ready 🚀\n\nYour chat ID: \`${chatId}\`\n\nAdd this to Vercel env vars:\n\`TELEGRAM_OWNER_CHAT_ID = ${chatId}\`\n\nCommands:\n/stats — live metrics\n/leads — recent email captures\n/tasks — your action items\n/report — trigger daily report now\n/mrr — revenue update\n/help — all commands`
       )
     } else if (text === "/stats") {
       const s = await getStats()
       await sendTelegramMessage(
         chatId,
-        `*Spur AI — Live Metrics*\n\n💰 MRR: $0\n👥 Users: ${s.users}\n✍️ Posts Generated: ${s.posts}\n📧 Email Leads: ${s.leads}\n\nGoal: $1,000 MRR in 30 days`
+        `*Spur AI — Live Metrics*\n\n💰 MRR: $0\n👥 Users: ${s.users} (+${s.newUsers} today)\n✍️ Posts Generated: ${s.posts}\n📧 Email Leads: ${s.leads} (+${s.newLeads} today)\n\nGoal: $1,000 MRR in 30 days`
+      )
+    } else if (text === "/leads") {
+      const leads = await getRecentLeads(10)
+      await sendTelegramMessage(chatId, `*Recent Email Leads*\n\n${leads}`)
+    } else if (text === "/report") {
+      const s = await getStats()
+      const grade = s.users === 0 ? "D" : s.users < 5 ? "C" : s.users < 20 ? "B" : "A"
+      const date = new Date().toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" })
+      await sendTelegramMessage(
+        chatId,
+        `*Spur AI — Manual Report*\n${date}\n\nGrade: ${grade}\n💰 MRR: $0\n👥 Users: ${s.users} (+${s.newUsers} today)\n📧 Leads: ${s.leads} (+${s.newLeads} today)\n✍️ Posts: ${s.posts}\n\n🔴 Stripe: needed\n🟢 App: live at trispur.com`
       )
     } else if (text === "/mrr") {
-      await sendTelegramMessage(chatId, `💰 MRR: $0\n\nNext milestone: First paying customer\nNeeded: ~7 Starter ($149/mo) or 4 Growth ($249/mo)`)
+      await sendTelegramMessage(chatId, `💰 MRR: $0\n\nNext milestone: First paying customer\n\nNeeded: ~7 Starter ($149/mo) or 4 Growth ($249/mo)\n\nAction: Set up Stripe account → add keys to Vercel`)
     } else if (text === "/tasks") {
       await sendTelegramMessage(
         chatId,
-        `*Your Action Items*\n\n🔴 Set up Stripe → paste keys in Vercel\n🔴 Set Resend API key in Vercel\n🟡 Post Day 1 LinkedIn content\n🟡 Send 10 LinkedIn cold DMs today\n🟢 CEO dashboard: trispur.com/admin\n🟢 Telegram bot: active ✓`
+        `*Your Action Items*\n\n🔴 Set up Stripe → paste keys in Vercel\n🔴 Set Resend API key in Vercel\n🔴 Add TELEGRAM_OWNER_CHAT_ID to Vercel\n🟡 Post Day 1 LinkedIn content\n🟡 Send 10 LinkedIn cold DMs today\n🟡 Submit to ProductHunt + IndieHackers\n🟢 CEO dashboard: trispur.com/admin\n🟢 Telegram bot: active ✓`
       )
     } else if (text === "/help") {
       await sendTelegramMessage(
         chatId,
-        `/stats — live metrics\n/tasks — action items\n/mrr — revenue status\n/help — this menu`
+        `/stats — live metrics\n/leads — recent email captures\n/report — manual report now\n/tasks — action items\n/mrr — revenue status\n/help — this menu`
       )
     } else {
       await sendTelegramMessage(
