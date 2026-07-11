@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const FRAMEWORKS = [
   { id: "story", label: "Personal Story", emoji: "📖" },
@@ -15,6 +15,15 @@ const FRAMEWORKS = [
   { id: "confession", label: "Confession", emoji: "🤫" },
 ]
 
+interface Profile {
+  full_name?: string
+  job_title?: string
+  business_name?: string
+  industry?: string
+  ideal_client?: string
+  content_tone?: string
+}
+
 export default function PostGenerator() {
   const [topic, setTopic] = useState("")
   const [framework, setFramework] = useState("story")
@@ -24,6 +33,38 @@ export default function PostGenerator() {
   const [loading, setLoading] = useState(false)
   const [copied, setCopied] = useState(false)
   const [charCount, setCharCount] = useState(0)
+  const [profile, setProfile] = useState<Profile | null>(null)
+  const [saving, setSaving] = useState(false)
+
+  useEffect(() => {
+    fetch("/api/profile")
+      .then((r) => r.json())
+      .then((d) => { if (d.profile) setProfile(d.profile) })
+      .catch(() => {})
+  }, [])
+
+  const buildUserBio = (p: Profile) => {
+    const parts = []
+    if (p.full_name) parts.push(`Name: ${p.full_name}`)
+    if (p.job_title) parts.push(`Role: ${p.job_title}`)
+    if (p.business_name) parts.push(`Business: ${p.business_name}`)
+    if (p.industry) parts.push(`Industry: ${p.industry}`)
+    if (p.ideal_client) parts.push(`Ideal client: ${p.ideal_client}`)
+    if (p.content_tone) parts.push(`Preferred tone: ${p.content_tone.replace(/_/g, " ")}`)
+    return parts.join(". ")
+  }
+
+  const saveToHistory = async (postText: string) => {
+    setSaving(true)
+    try {
+      await fetch("/api/posts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content: postText, topic, framework }),
+      })
+    } catch {}
+    setSaving(false)
+  }
 
   const generate = async () => {
     if (!topic.trim()) return
@@ -31,10 +72,15 @@ export default function PostGenerator() {
     setGeneratedPost("")
 
     try {
+      const userBio = profile ? buildUserBio(profile) : ""
+      const resolvedTone = profile?.content_tone
+        ? profile.content_tone.replace(/_/g, " ")
+        : tone
+
       const res = await fetch("/api/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ topic, framework, tone, includeEmoji }),
+        body: JSON.stringify({ topic, framework, tone: resolvedTone, includeEmoji, userBio }),
       })
 
       if (!res.ok) throw new Error("Generation failed")
@@ -51,6 +97,7 @@ export default function PostGenerator() {
         setGeneratedPost(fullText)
         setCharCount(fullText.length)
       }
+      if (fullText) saveToHistory(fullText)
     } catch (err) {
       console.error(err)
       setGeneratedPost("Something went wrong. Please try again.")
@@ -193,8 +240,8 @@ export default function PostGenerator() {
                 <div className="flex gap-3 mb-4">
                   <div className="w-10 h-10 rounded-full gradient-bg flex-shrink-0" />
                   <div>
-                    <div className="font-semibold text-gray-900 text-sm">Your Name</div>
-                    <div className="text-gray-400 text-xs">Your Title · Just now</div>
+                    <div className="font-semibold text-gray-900 text-sm">{profile?.full_name ?? "Your Name"}</div>
+                    <div className="text-gray-400 text-xs">{profile?.job_title ?? "Your Title"} · Just now</div>
                   </div>
                 </div>
                 <div className="text-gray-800 text-sm leading-relaxed whitespace-pre-line">
@@ -206,13 +253,20 @@ export default function PostGenerator() {
               </div>
 
               <div className="flex gap-3">
-                <button className="flex-1 bg-blue-600 text-white text-sm font-semibold py-3 rounded-xl hover:bg-blue-700 transition-colors">
-                  📅 Add to calendar
+                <button
+                  onClick={regenerate}
+                  className="flex-1 border border-gray-200 text-gray-700 text-sm font-semibold py-3 rounded-xl hover:bg-gray-50 transition-colors"
+                >
+                  ↺ Regenerate
                 </button>
-                <button className="flex-1 border border-gray-200 text-gray-700 text-sm font-semibold py-3 rounded-xl hover:bg-gray-50 transition-colors">
-                  💾 Save draft
+                <button
+                  onClick={copyToClipboard}
+                  className="flex-1 gradient-bg text-white text-sm font-semibold py-3 rounded-xl hover:opacity-90 transition-opacity"
+                >
+                  {copied ? "✓ Copied!" : "Copy for LinkedIn"}
                 </button>
               </div>
+              {saving && <p className="text-xs text-gray-400 text-center">Saving to history...</p>}
             </div>
           )}
         </div>
