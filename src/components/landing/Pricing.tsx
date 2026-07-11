@@ -149,6 +149,12 @@ export default function Pricing() {
               Questions? Email us
             </a>
           </p>
+          <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-500">
+            <span className="flex items-center gap-1.5"><span className="text-green-500">✓</span> 14-day free trial</span>
+            <span className="flex items-center gap-1.5"><span className="text-green-500">✓</span> Cancel anytime</span>
+            <span className="flex items-center gap-1.5"><span className="text-green-500">✓</span> 30-day money-back guarantee</span>
+            <span className="flex items-center gap-1.5"><span className="text-green-500">✓</span> Founding member price locked in</span>
+          </div>
         </div>
       </div>
     </section>

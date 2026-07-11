@@ -63,7 +63,7 @@ export default function Hero({ email, setEmail }: HeroProps) {
         </form>
 
         <p className="text-gray-400 text-sm mb-16">
-          Join 500+ B2B professionals already generating leads with Spur AI
+          <span className="text-blue-600 font-semibold">Founding member pricing</span> — locked in for life when you join today
         </p>
 
         <div className="relative mx-auto max-w-4xl">
