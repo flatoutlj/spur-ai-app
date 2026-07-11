@@ -49,7 +49,8 @@ export async function GET(req: NextRequest) {
 
   const date = new Date().toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" })
 
-  const grade = totalUsers === 0 ? "D" : totalUsers < 5 ? "C" : totalUsers < 20 ? "B" : "A"
+  const userCount = totalUsers ?? 0
+  const grade = userCount === 0 ? "D" : userCount < 5 ? "C" : userCount < 20 ? "B" : "A"
 
   const report = `*Spur AI — Daily Executive Report*
 ${date}

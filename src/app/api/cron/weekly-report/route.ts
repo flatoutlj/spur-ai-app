@@ -50,7 +50,8 @@ export async function GET(req: NextRequest) {
   ])
 
   const week = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
-  const grade = totalUsers === 0 ? "D" : totalUsers < 5 ? "C" : totalUsers < 20 ? "B" : "A"
+  const userCount = totalUsers ?? 0
+  const grade = userCount === 0 ? "D" : userCount < 5 ? "C" : userCount < 20 ? "B" : "A"
   const mrr = 0 // Update when Stripe is live
 
   const report = `*Spur AI — Weekly Executive Report*
