@@ -22,10 +22,9 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4 text-sm">Product</h4>
             <ul className="space-y-3 text-sm">
               <li><Link href="#features" className="hover:text-white transition-colors">Features</Link></li>
-              <li><Link href="#pricing" className="hover:text-white transition-colors">Pricing</Link></li>
-              <li><Link href="#how-it-works" className="hover:text-white transition-colors">How it works</Link></li>
-              <li><Link href="#testimonials" className="hover:text-white transition-colors">Testimonials</Link></li>
-              <li><Link href="/changelog" className="hover:text-white transition-colors">Changelog</Link></li>
+              <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
+              <li><Link href="/free-tools" className="hover:text-white transition-colors">Free tools</Link></li>
+              <li><Link href="/signup" className="hover:text-white transition-colors">Start free trial</Link></li>
             </ul>
           </div>
 

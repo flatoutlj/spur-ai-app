@@ -21,14 +21,14 @@ export default function Navbar() {
             <Link href="#features" className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
               Features
             </Link>
-            <Link href="#how-it-works" className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
-              How it works
+            <Link href="/free-tools" className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
+              Free tools
             </Link>
             <Link href="#pricing" className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
               Pricing
             </Link>
-            <Link href="#testimonials" className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
-              Testimonials
+            <Link href="/blog" className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
+              Blog
             </Link>
           </div>
 
@@ -61,7 +61,9 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3">
           <Link href="#features" className="block text-gray-600 font-medium py-2">Features</Link>
+          <Link href="/free-tools" className="block text-gray-600 font-medium py-2">Free tools</Link>
           <Link href="#pricing" className="block text-gray-600 font-medium py-2">Pricing</Link>
+          <Link href="/blog" className="block text-gray-600 font-medium py-2">Blog</Link>
           <Link href="/login" className="block text-gray-600 font-medium py-2">Log in</Link>
           <Link href="/signup" className="block gradient-bg text-white text-center font-semibold py-3 rounded-full">
             Start free trial
