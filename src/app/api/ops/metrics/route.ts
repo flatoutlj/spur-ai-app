@@ -4,23 +4,28 @@ import { isAdmin } from "@/lib/adminAuth"
 export const dynamic = "force-dynamic"
 
 async function count(base: string, key: string, table: string): Promise<number | null> {
-  try {
-    const res = await fetch(`${base}/rest/v1/${table}?select=*`, {
-      headers: {
-        apikey: key,
-        Authorization: `Bearer ${key}`,
-        Prefer: "count=exact",
-        Range: "0-0",
-      },
-      cache: "no-store",
-    })
-    const cr = res.headers.get("content-range") // "0-0/42"
-    if (cr && cr.includes("/")) {
-      const total = cr.split("/").pop()!
-      return /^\d+$/.test(total) ? parseInt(total, 10) : null
+  // Retry once: on a cold serverless start the first PostgREST call can race
+  // and come back without a content-range header, which would show as null.
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const res = await fetch(`${base}/rest/v1/${table}?select=*`, {
+        headers: {
+          apikey: key,
+          Authorization: `Bearer ${key}`,
+          Prefer: "count=exact",
+          Range: "0-0",
+        },
+        cache: "no-store",
+      })
+      const cr = res.headers.get("content-range") // "0-0/42"
+      if (cr && cr.includes("/")) {
+        const total = cr.split("/").pop()!
+        return /^\d+$/.test(total) ? parseInt(total, 10) : null
+      }
+    } catch {
+      /* fall through to retry */
     }
-  } catch {
-    /* ignore */
+    if (attempt === 0) await new Promise((r) => setTimeout(r, 250))
   }
   return null
 }
