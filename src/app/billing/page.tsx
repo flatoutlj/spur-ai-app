@@ -67,19 +67,19 @@ export default function BillingPage() {
           <div className="grid sm:grid-cols-3 gap-4">
             {[
               {
-                id: "starter",
-                name: "Starter",
-                price: 149,
-                description: "For solo consultants",
-                features: ["30 posts/month", "Content frameworks", "Hooks library", "Email support"],
+                id: "solo",
+                name: "Solo",
+                price: 19,
+                description: "For individuals",
+                features: ["30 posts/month", "All frameworks", "Hooks library", "DM & bio generators"],
                 popular: false,
               },
               {
-                id: "growth",
-                name: "Growth",
-                price: 249,
-                description: "For agency owners",
-                features: ["Unlimited posts", "DM generator", "Profile optimizer", "Priority support"],
+                id: "starter",
+                name: "Pro",
+                price: 149,
+                description: "For consultants & coaches",
+                features: ["Unlimited posts", "Profile optimizer", "Analytics", "Priority support"],
                 popular: true,
               },
               {

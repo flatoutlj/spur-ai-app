@@ -6,6 +6,7 @@ const getStripe = () => new Stripe(process.env.STRIPE_SECRET_KEY!, {
 })
 
 const PRICE_MAP: Record<string, string> = {
+  solo: process.env.STRIPE_PRICE_SOLO_MONTHLY!,
   starter: process.env.STRIPE_PRICE_STARTER_MONTHLY!,
   growth: process.env.STRIPE_PRICE_GROWTH_MONTHLY!,
   agency: process.env.STRIPE_PRICE_AGENCY_MONTHLY!,

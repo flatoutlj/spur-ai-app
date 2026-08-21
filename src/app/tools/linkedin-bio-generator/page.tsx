@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import LinkedInBioGeneratorClient from "./LinkedInBioGeneratorClient"
+import EmailCaptureBar from "@/components/tools/EmailCaptureBar"
 
 export const metadata: Metadata = {
   title: "Free LinkedIn Bio Generator — 5 About Section Templates",
@@ -154,6 +155,9 @@ export default function LinkedInBioGeneratorPage() {
           <section className="py-8 px-4">
             <div className="max-w-3xl mx-auto">
               <LinkedInBioGeneratorClient />
+              <div className="mt-6">
+                <EmailCaptureBar source="tool-bio-generator" prompt="Get more profile templates + weekly LinkedIn growth tips — free." />
+              </div>
             </div>
           </section>
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Script from "next/script"
 import ProfileChecklist from "./ProfileChecklist"
+import EmailCaptureBar from "@/components/tools/EmailCaptureBar"
 
 export const metadata: Metadata = {
   title: "Free LinkedIn Profile Optimizer — Score & Checklist (2026) | Spur AI",
@@ -292,6 +293,10 @@ export default function LinkedInProfileOptimizerPage() {
             </div>
 
             <ProfileChecklist />
+
+            <div className="mt-6">
+              <EmailCaptureBar source="tool-profile-optimizer" prompt="Get the full profile-optimization playbook + weekly tips — free." />
+            </div>
 
             <div className="mt-10 text-center">
               <p className="text-gray-500 text-sm mb-4">

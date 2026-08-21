@@ -36,6 +36,9 @@ yarn-error.log*
 # claude local state
 .claude/last_status.txt
 
+# agent runtime state (poll timestamps, generated keys, price-id scratch)
+.agent-state/
+
 # vercel
 .vercel
 

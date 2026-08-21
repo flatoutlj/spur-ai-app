@@ -72,7 +72,16 @@ export default function ExitIntentPopup() {
           <div className="py-4">
             <div className="text-4xl mb-4">🎉</div>
             <h3 className="text-xl font-bold text-gray-900 mb-2">You're in!</h3>
-            <p className="text-gray-500">Check your inbox — early access incoming.</p>
+            <p className="text-gray-500 mb-5">
+              Want them all right now? The full <strong>LinkedIn Founder Content Pack</strong> has 200+ hooks, 8 DM scripts, 40 headline formulas &amp; a 30-day calendar.
+            </p>
+            <a
+              href="/pack"
+              className="inline-block gradient-bg text-white font-semibold px-6 py-3 rounded-full hover:opacity-90 transition-opacity text-sm"
+            >
+              Get the pack — $29 →
+            </a>
+            <p className="text-gray-400 text-xs mt-3">Instant access · No subscription</p>
           </div>
         ) : (
           <>

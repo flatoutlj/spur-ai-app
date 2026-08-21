@@ -24,6 +24,8 @@ export default function Footer() {
               <li><Link href="#features" className="hover:text-white transition-colors">Features</Link></li>
               <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
               <li><Link href="/free-tools" className="hover:text-white transition-colors">Free tools</Link></li>
+              <li><Link href="/pack" className="hover:text-white transition-colors">$29 Content Pack</Link></li>
+              <li><Link href="/done-for-you" className="hover:text-white transition-colors">Done-for-you service</Link></li>
               <li><Link href="/signup" className="hover:text-white transition-colors">Start free trial</Link></li>
             </ul>
           </div>

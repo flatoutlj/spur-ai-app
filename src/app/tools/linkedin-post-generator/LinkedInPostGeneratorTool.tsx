@@ -284,7 +284,7 @@ export default function LinkedInPostGeneratorTool() {
 
           <div className="mt-5 pt-4 border-t border-gray-50 flex flex-col sm:flex-row items-center gap-3">
             <p className="text-gray-500 text-sm flex-1">
-              Like this? Get posts trained on <em>your</em> voice, tone, and niche.
+              This post could book you a discovery call. Get 30 like it every month — trained on <em>your</em> voice and niche.
             </p>
             <Link
               href="/signup"
@@ -293,6 +293,17 @@ export default function LinkedInPostGeneratorTool() {
               Start free trial →
             </Link>
           </div>
+
+          <a
+            href="/pack"
+            className="mt-3 flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 hover:border-amber-300 transition-colors"
+          >
+            <span className="text-xl">📦</span>
+            <span className="flex-1 text-xs text-gray-700 leading-snug">
+              <strong className="text-gray-900">Never run out of ideas:</strong> 200+ hooks, 8 DM scripts, 40 headline formulas &amp; a 30-day calendar — one-time $29.
+            </span>
+            <span className="flex-shrink-0 text-xs font-semibold text-amber-700">Get it →</span>
+          </a>
         </div>
       )}
 

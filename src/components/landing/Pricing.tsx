@@ -5,16 +5,17 @@ import Link from "next/link"
 
 const plans = [
   {
-    name: "Starter",
-    monthlyPrice: 149,
-    annualPrice: 119,
-    description: "For solo consultants and coaches getting started on LinkedIn.",
+    name: "Solo",
+    slug: "solo",
+    monthlyPrice: 19,
+    annualPrice: 15,
+    description: "For individuals who want a steady flow of LinkedIn content without the big commitment.",
     features: [
       "30 AI posts per month",
-      "15 content frameworks",
-      "Hooks library (50 hooks)",
+      "All post frameworks",
+      "Full hooks library (200+ hooks)",
+      "Headline, bio & DM generators",
       "Content calendar",
-      "Post history",
       "Email support",
     ],
     cta: "Start free trial",
@@ -22,18 +23,17 @@ const plans = [
     color: "border-gray-200",
   },
   {
-    name: "Growth",
-    monthlyPrice: 249,
-    annualPrice: 199,
-    description: "For agency owners and consultants who want to dominate their niche.",
+    name: "Pro",
+    slug: "starter",
+    monthlyPrice: 149,
+    annualPrice: 119,
+    description: "For consultants and coaches serious about turning LinkedIn into their #1 lead source.",
     features: [
       "Unlimited AI posts",
-      "All 15+ frameworks",
-      "Full hooks library (200+ hooks)",
-      "Content calendar + scheduling",
-      "Prospect DM generator",
-      "Performance analytics",
+      "Everything in Solo",
       "LinkedIn profile optimizer",
+      "Performance analytics",
+      "Content calendar + scheduling",
       "Priority email + chat support",
     ],
     cta: "Start free trial",
@@ -42,11 +42,12 @@ const plans = [
   },
   {
     name: "Agency",
+    slug: "agency",
     monthlyPrice: 449,
     annualPrice: 359,
     description: "For agencies managing LinkedIn for multiple team members or clients.",
     features: [
-      "Everything in Growth",
+      "Everything in Pro",
       "Up to 5 team members",
       "Team content calendar",
       "Brand voice profiles per user",
@@ -120,7 +121,7 @@ export default function Pricing() {
                 )}
               </div>
               <Link
-                href={`/signup?plan=${plan.name.toLowerCase()}`}
+                href={`/signup?plan=${plan.slug}`}
                 className={`block text-center font-semibold py-3.5 rounded-full mb-6 transition-opacity ${
                   plan.popular
                     ? "gradient-bg text-white hover:opacity-90"
@@ -142,7 +143,26 @@ export default function Pricing() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        {/* Not ready to subscribe? One-time pack */}
+        <div className="mt-8 max-w-3xl mx-auto">
+          <a
+            href="/pack"
+            className="group flex flex-col sm:flex-row items-center gap-4 rounded-2xl border border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 p-5 hover:border-amber-300 transition-colors"
+          >
+            <div className="text-3xl">📦</div>
+            <div className="flex-1 text-center sm:text-left">
+              <p className="font-bold text-gray-900 text-sm">Not ready to subscribe? Start with the Content Pack.</p>
+              <p className="text-gray-600 text-xs mt-0.5">
+                200+ hooks, 8 DM scripts, 40 headline formulas &amp; a 30-day calendar — one-time $29, instant access, 30-day money-back guarantee.
+              </p>
+            </div>
+            <span className="flex-shrink-0 gradient-bg text-white text-sm font-semibold px-5 py-2.5 rounded-full group-hover:opacity-90 transition-opacity">
+              Get it — $29 →
+            </span>
+          </a>
+        </div>
+
+        <div className="mt-8 text-center">
           <p className="text-gray-500 text-sm">
             All plans include a 14-day free trial. Cancel anytime.
             <a href="mailto:hello@trispur.com" className="text-blue-600 hover:underline ml-1">

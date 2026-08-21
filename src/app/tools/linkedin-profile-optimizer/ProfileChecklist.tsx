@@ -52,8 +52,11 @@ function getScoreLabel(score: number): { label: string; color: string; bg: strin
   }
 }
 
+const SHARE_URL = "https://trispur.com/tools/linkedin-profile-optimizer"
+
 export default function ProfileChecklist() {
   const [checked, setChecked] = useState<Set<number>>(new Set())
+  const [shareState, setShareState] = useState<"idle" | "copied" | "shared">("idle")
 
   const toggle = (id: number) => {
     setChecked((prev) => {
@@ -74,6 +77,28 @@ export default function ProfileChecklist() {
   const score = Math.round((earnedPoints / totalPoints) * 100)
   const result = getScoreLabel(score)
   const completedCount = checked.size
+
+  const shareText = `I scored ${score}/100 on my LinkedIn profile with this free tool. What's your score?`
+
+  const handleShare = async () => {
+    const nav = typeof navigator !== "undefined" ? navigator : undefined
+    if (nav && typeof nav.share === "function") {
+      try {
+        await nav.share({ title: "My LinkedIn Profile Score", text: shareText, url: SHARE_URL })
+        setShareState("shared")
+        return
+      } catch {
+        /* user cancelled or unsupported — fall through to copy */
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(`${shareText} ${SHARE_URL}`)
+      setShareState("copied")
+      setTimeout(() => setShareState("idle"), 2500)
+    } catch {
+      /* clipboard blocked; no-op */
+    }
+  }
 
   return (
     <div>
@@ -99,6 +124,20 @@ export default function ProfileChecklist() {
         </div>
 
         <p className={`text-sm ${result.color}`}>{result.description}</p>
+
+        {completedCount > 0 && (
+          <div className="mt-4 pt-4 border-t border-white/50 flex flex-col sm:flex-row items-center gap-3">
+            <p className="text-sm text-gray-600 flex-1 text-center sm:text-left">
+              📊 <strong>Show your score.</strong> Challenge your network — what&apos;s their LinkedIn profile worth?
+            </p>
+            <button
+              onClick={handleShare}
+              className="flex-shrink-0 gradient-bg text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity"
+            >
+              {shareState === "copied" ? "Copied link!" : shareState === "shared" ? "Shared! 🎉" : `Share my ${score}/100 →`}
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Checklist */}

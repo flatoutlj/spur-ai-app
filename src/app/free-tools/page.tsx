@@ -107,6 +107,18 @@ const tools = [
     iconBg: "bg-indigo-50",
     cta: "Check my profile score →",
   },
+  {
+    title: "LinkedIn Carousel Generator",
+    url: "/tools/linkedin-carousel-generator",
+    badge: "New",
+    badgeColor: "bg-pink-100 text-pink-700 border-pink-200",
+    description:
+      "Generate a scroll-stopping 7-slide LinkedIn carousel in seconds with AI. Carousels are the highest-engagement format on LinkedIn — turn any topic into a swipeable document post.",
+    keywords: ["linkedin carousel generator", "linkedin carousel maker", "ai linkedin carousel"],
+    icon: "🎠",
+    iconBg: "bg-pink-50",
+    cta: "Build my carousel →",
+  },
 ]
 
 const itemListJsonLd = {
@@ -191,7 +203,7 @@ export default function FreeToolsPage() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-200 rounded-full px-4 py-1.5 mb-6">
             <span className="text-blue-700 text-sm font-medium">
-              7 free tools · No signup required
+              8 free tools · No signup required
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-5">
@@ -201,6 +213,31 @@ export default function FreeToolsPage() {
             Post generators, content calendar, hooks, headline and bio formulas — everything you need
             to start growing on LinkedIn today. 100% free, no email required.
           </p>
+        </div>
+      </section>
+
+      {/* Content Pack banner */}
+      <section className="px-4 sm:px-6 lg:px-8 -mt-2">
+        <div className="max-w-5xl mx-auto">
+          <a
+            href="/pack"
+            className="group block rounded-2xl border border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 p-5 sm:p-6 hover:border-amber-300 transition-colors"
+          >
+            <div className="flex items-center gap-4 flex-wrap sm:flex-nowrap">
+              <div className="text-3xl">📦</div>
+              <div className="flex-1 min-w-0">
+                <p className="font-bold text-gray-900 text-sm sm:text-base">
+                  Want it all in one place? Get The LinkedIn Founder Content Pack
+                </p>
+                <p className="text-gray-600 text-xs sm:text-sm mt-0.5">
+                  200+ hooks, 8 DM scripts, 40 headline formulas & a 30-day calendar — instant access, one-time $29.
+                </p>
+              </div>
+              <span className="flex-shrink-0 gradient-bg text-white text-sm font-semibold px-5 py-2.5 rounded-full group-hover:opacity-90 transition-opacity">
+                Get it — $29 →
+              </span>
+            </div>
+          </a>
         </div>
       </section>
 

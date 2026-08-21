@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import DMTemplatesClient from "./DMTemplatesClient"
+import EmailCaptureBar from "@/components/tools/EmailCaptureBar"
 
 export const metadata: Metadata = {
   title: "25 LinkedIn Message Templates That Get Replies | Free DM Generator | Spur AI",
@@ -224,6 +225,9 @@ export default function LinkedInDMGeneratorPage() {
             </p>
           </div>
           <DMTemplatesClient />
+          <div className="mt-6">
+            <EmailCaptureBar source="tool-dm-generator" prompt="Get 8 more DM scripts + weekly LinkedIn growth tips — free." />
+          </div>
         </div>
       </section>
 

@@ -2,6 +2,48 @@ const BASE = "https://trispur.com"
 
 const POSTS = [
   {
+    slug: "linkedin-carousel-post-ideas",
+    title: "12 LinkedIn Carousel Post Ideas That Get Saved & Shared (2026)",
+    description: "12 proven LinkedIn carousel frameworks with slide-by-slide structures — plus a free AI carousel generator.",
+    date: "2026-07-12",
+  },
+  {
+    slug: "linkedin-ghostwriting-for-consultants",
+    title: "LinkedIn Ghostwriting for Consultants (2026 Guide)",
+    description: "What a LinkedIn ghostwriter costs, when it's worth it, and a smarter AI-assisted alternative for consultants.",
+    date: "2026-07-12",
+  },
+  {
+    slug: "linkedin-post-templates",
+    title: "12 LinkedIn Post Templates That Get Engagement (Copy-Paste, 2026)",
+    description: "12 free copy-paste LinkedIn post templates for B2B professionals — fill in the blanks and post in minutes.",
+    date: "2026-07-11",
+  },
+  {
+    slug: "best-linkedin-ai-tools",
+    title: "10 Best LinkedIn AI Tools in 2026 (Ranked & Compared)",
+    description: "The 10 best LinkedIn AI tools for 2026, compared on price, features, and who they're for.",
+    date: "2026-07-11",
+  },
+  {
+    slug: "linkedin-connection-message",
+    title: "15 LinkedIn Connection Message Templates That Get Accepted (2026)",
+    description: "15 LinkedIn connection message templates that actually get accepted — for cold outreach, warm intros, event follow-ups, and B2B prospecting.",
+    date: "2026-07-11",
+  },
+  {
+    slug: "linkedin-profile-tips",
+    title: "21 LinkedIn Profile Tips That Attract Clients in 2026",
+    description: "Proven LinkedIn profile tips for B2B professionals — optimize every section to turn profile views into inbound leads.",
+    date: "2026-07-11",
+  },
+  {
+    slug: "linkedin-headline-examples",
+    title: "40 LinkedIn Headline Examples That Get Clicks (2026 Guide)",
+    description: "40 real LinkedIn headline examples for consultants, coaches, and B2B professionals — with the formulas that make ideal clients click through.",
+    date: "2026-07-11",
+  },
+  {
     slug: "linkedin-marketing",
     title: "LinkedIn Marketing: The Complete B2B Strategy Guide (2026)",
     description: "Everything you need to know about LinkedIn marketing for B2B — profile optimization, content strategy, lead generation, paid ads, and measuring ROI.",

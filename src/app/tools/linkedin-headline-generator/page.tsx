@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import HeadlineGeneratorClient from "./HeadlineGeneratorClient"
+import EmailCaptureBar from "@/components/tools/EmailCaptureBar"
 
 export const metadata: Metadata = {
   title: "Free LinkedIn Headline Generator — 5 Formulas That Get You Noticed | Spur AI",
@@ -285,6 +286,9 @@ export default function LinkedInHeadlineGeneratorPage() {
       <section id="generator" className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <HeadlineGeneratorClient />
+          <div className="mt-6">
+            <EmailCaptureBar source="tool-headline-generator" prompt="Get 40 headline formulas + weekly LinkedIn growth tips — free." />
+          </div>
         </div>
       </section>
 

@@ -5,7 +5,7 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "Pricing — LinkedIn AI Content Tool | Spur AI",
   description:
-    "Spur AI pricing: Starter $149/mo, Growth $249/mo, Agency $449/mo. 14-day free trial, no credit card required. One closed deal pays for a full year.",
+    "Spur AI pricing: Solo $19/mo, Pro $149/mo, Agency $449/mo. 14-day free trial, no credit card required. One closed deal pays for a full year.",
   keywords: [
     "linkedin ai tool pricing",
     "spur ai pricing",
@@ -35,12 +35,12 @@ const faqs = [
   {
     question: "What's included in every plan?",
     answer:
-      "Every plan includes AI-generated LinkedIn posts, content frameworks, a hooks library, content calendar, and post history. Growth and Agency plans unlock unlimited posts, advanced analytics, the DM generator, and profile optimizer.",
+      "Every plan includes AI-generated LinkedIn posts, content frameworks, a hooks library, and a content calendar. Solo ($19/mo) covers 30 posts a month — perfect for staying consistent. Pro and Agency plans unlock unlimited posts, advanced analytics, and the LinkedIn profile optimizer.",
   },
   {
     question: "Is there an annual discount?",
     answer:
-      "Yes — annual billing saves you 20% compared to monthly. On the Starter plan that's $119/mo (vs $149/mo). On Growth it's $199/mo (vs $249/mo). On Agency it's $359/mo (vs $449/mo). You're billed once per year.",
+      "Yes — annual billing saves you 20% compared to monthly. On the Solo plan that's $15/mo (vs $19/mo). On Pro it's $119/mo (vs $149/mo). On Agency it's $359/mo (vs $449/mo). You're billed once per year.",
   },
   {
     question: "What is your refund policy?",

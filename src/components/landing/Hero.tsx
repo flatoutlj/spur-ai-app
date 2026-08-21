@@ -40,8 +40,8 @@ export default function Hero({ email, setEmail }: HeroProps) {
         </h1>
 
         <p className="text-xl sm:text-2xl text-gray-500 max-w-3xl mx-auto mb-10 leading-relaxed">
-          AI-powered content engine built for consultants, coaches, and agency owners who need to{" "}
-          <strong className="text-gray-700">attract premium clients</strong> — not just followers.
+          AI content engine that writes in <strong className="text-gray-700">your voice</strong> — so posts sound like you, not a bot. Built for consultants, coaches, and agency owners who want{" "}
+          <strong className="text-gray-700">premium clients</strong>, not just followers.
         </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto mb-6">

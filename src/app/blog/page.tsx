@@ -25,6 +25,69 @@ export const metadata: Metadata = {
 
 const POSTS = [
   {
+    slug: "linkedin-carousel-post-ideas",
+    title: "12 LinkedIn Carousel Post Ideas That Get Saved & Shared (2026)",
+    description:
+      "12 proven LinkedIn carousel frameworks for B2B professionals — with slide-by-slide structures. Plus a free AI tool that builds your carousel in seconds.",
+    category: "Content Ideas",
+    readTime: "8 min read",
+    volume: "3,500/mo",
+  },
+  {
+    slug: "linkedin-ghostwriting-for-consultants",
+    title: "LinkedIn Ghostwriting for Consultants (2026 Guide)",
+    description:
+      "Hiring a LinkedIn ghostwriter costs $1,500–$3,000/month. What you get, what you lose, and a smarter AI-assisted alternative for consultants.",
+    category: "Consulting",
+    readTime: "9 min read",
+    volume: "2,000/mo",
+  },
+  {
+    slug: "linkedin-post-templates",
+    title: "12 LinkedIn Post Templates That Get Engagement (Copy-Paste, 2026)",
+    description:
+      "12 free copy-paste LinkedIn post templates for B2B professionals — story, contrarian, how-to, results, and more. Fill in the blanks and post in minutes.",
+    category: "Templates",
+    readTime: "7 min read",
+    volume: "14,000/mo",
+  },
+  {
+    slug: "best-linkedin-ai-tools",
+    title: "10 Best LinkedIn AI Tools in 2026 (Ranked & Compared)",
+    description:
+      "The 10 best LinkedIn AI tools for 2026, compared on price, features, and who they're for — for consultants, coaches, agencies, and creators.",
+    category: "Tool Comparison",
+    readTime: "12 min read",
+    volume: "9,900/mo",
+  },
+  {
+    slug: "linkedin-connection-message",
+    title: "15 LinkedIn Connection Message Templates That Get Accepted (2026)",
+    description:
+      "LinkedIn connection message templates that actually get accepted — 15 real examples for cold outreach, warm introductions, and targeting your ideal B2B clients.",
+    category: "Outreach",
+    readTime: "9 min read",
+    volume: "11,000/mo",
+  },
+  {
+    slug: "linkedin-profile-tips",
+    title: "21 LinkedIn Profile Tips That Attract Clients in 2026",
+    description:
+      "Proven LinkedIn profile tips for B2B professionals — optimize your headline, About section, featured section, and banner to turn profile views into inbound leads.",
+    category: "Profile Optimization",
+    readTime: "11 min read",
+    volume: "16,000/mo",
+  },
+  {
+    slug: "linkedin-headline-examples",
+    title: "40 LinkedIn Headline Examples That Get Clicks (2026 Guide)",
+    description:
+      "Real LinkedIn headline examples for B2B consultants, coaches, and agency owners — plus the exact formulas that make ideal clients click your profile.",
+    category: "Profile Optimization",
+    readTime: "10 min read",
+    volume: "12,000/mo",
+  },
+  {
     slug: "linkedin-marketing",
     title: "LinkedIn Marketing: The Complete B2B Strategy Guide (2026)",
     description:
@@ -167,6 +230,8 @@ const CATEGORY_COLORS: Record<string, string> = {
   "Algorithm": "bg-slate-50 text-slate-700 border-slate-200",
   "Marketing": "bg-rose-50 text-rose-700 border-rose-200",
   "Business Growth": "bg-lime-50 text-lime-700 border-lime-200",
+  "Tool Comparison": "bg-slate-100 text-slate-700 border-slate-200",
+  "Templates": "bg-yellow-50 text-yellow-700 border-yellow-200",
 }
 
 const jsonLd = {
