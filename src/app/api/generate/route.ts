@@ -1,4 +1,6 @@
+import { NextRequest } from "next/server"
 import Anthropic from "@anthropic-ai/sdk"
+import { rateLimit, getClientIp, checkPayloadSize } from "@/lib/rateLimit"
 
 function getClient() {
   return new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
@@ -19,6 +21,9 @@ const POST_FRAMEWORKS = {
 
 export async function POST(request: Request) {
   try {
+    const limited = rateLimit(`generate:${getClientIp(request as NextRequest)}`, 20, 60_000)
+    if (limited) return limited
+
     const body = await request.json()
     const {
       topic,
@@ -33,6 +38,12 @@ export async function POST(request: Request) {
     if (!topic) {
       return Response.json({ error: "Topic is required" }, { status: 400 })
     }
+
+    const tooBig = checkPayloadSize(
+      { topic, audience, tone, userBio },
+      { topic: 300, audience: 200, tone: 100, userBio: 1000 }
+    )
+    if (tooBig) return tooBig
 
     const frameworkDescription =
       POST_FRAMEWORKS[framework as keyof typeof POST_FRAMEWORKS] || POST_FRAMEWORKS.story

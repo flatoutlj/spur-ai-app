@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import Anthropic from "@anthropic-ai/sdk"
+import { rateLimit, getClientIp, checkPayloadSize } from "@/lib/rateLimit"
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
@@ -22,11 +23,19 @@ const TYPE_PROMPTS: Record<string, string> = {
 
 export async function POST(req: NextRequest) {
   try {
+    // Abuse protection: cap per-IP request rate on this paid (LLM-backed) endpoint.
+    const limited = rateLimit(`gen-post:${getClientIp(req)}`, 15, 60_000)
+    if (limited) return limited
+
     const { topic, type, context } = await req.json()
 
     if (!topic || !type) {
       return NextResponse.json({ error: "Missing topic or type" }, { status: 400 })
     }
+
+    // Bound worst-case cost / prompt-injection surface.
+    const tooBig = checkPayloadSize({ topic, type, context }, { topic: 60, type: 30, context: 600 })
+    if (tooBig) return tooBig
 
     const nicheLabel = NICHE_LABELS[topic] ?? topic
     const typePrompt = TYPE_PROMPTS[type] ?? TYPE_PROMPTS.story

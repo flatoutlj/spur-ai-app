@@ -1,0 +1,5 @@
+Contact: mailto:hello@trispur.com
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://trispur.com/.well-known/security.txt
+Policy: https://trispur.com/terms

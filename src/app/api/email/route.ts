@@ -1,11 +1,25 @@
+import { NextRequest } from "next/server"
+import { rateLimit, getClientIp } from "@/lib/rateLimit"
+
 export async function POST(request: Request) {
   try {
+    // Prevent spam / DB flooding of the leads table.
+    const limited = rateLimit(`email:${getClientIp(request as NextRequest)}`, 10, 60_000)
+    if (limited) return limited
+
     const body = await request.json()
     const { email, source = "landing" } = body
 
-    if (!email || !email.includes("@")) {
+    // Basic email validation + length cap.
+    if (
+      !email ||
+      typeof email !== "string" ||
+      email.length > 254 ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    ) {
       return Response.json({ error: "Valid email required" }, { status: 400 })
     }
+    const safeSource = typeof source === "string" ? source.slice(0, 60) : "landing"
 
     // Always persist to Supabase regardless of Resend
     const { createClient } = await import("@supabase/supabase-js")
@@ -15,7 +29,7 @@ export async function POST(request: Request) {
     )
     await supabase
       .from("email_captures")
-      .upsert({ email, source, created_at: new Date().toISOString() }, { onConflict: "email" })
+      .upsert({ email, source: safeSource, created_at: new Date().toISOString() }, { onConflict: "email" })
 
     if (process.env.RESEND_API_KEY) {
       const { Resend } = await import("resend")
@@ -61,8 +75,8 @@ export async function POST(request: Request) {
       await resend.emails.send({
         from: "Spur AI Alerts <hello@trispur.com>",
         to: "lapoldeonwill@gmail.com",
-        subject: `New signup: ${email} via ${source}`,
-        html: `<p>New email capture: <strong>${email}</strong></p><p>Source: ${source}</p>`,
+        subject: `New signup: ${email} via ${safeSource}`,
+        html: `<p>New email capture: <strong>${email}</strong></p><p>Source: ${safeSource}</p>`,
       })
     }
 
