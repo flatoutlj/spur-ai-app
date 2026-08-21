@@ -5,11 +5,14 @@ const getStripe = () => new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2026-06-24.dahlia",
 })
 
-const PRICE_MAP: Record<string, string> = {
-  solo: process.env.STRIPE_PRICE_SOLO_MONTHLY!,
-  starter: process.env.STRIPE_PRICE_STARTER_MONTHLY!,
-  growth: process.env.STRIPE_PRICE_GROWTH_MONTHLY!,
-  agency: process.env.STRIPE_PRICE_AGENCY_MONTHLY!,
+// Maps plan slug -> Stripe price env var name. We look up process.env at
+// request time (not module load) so a missing var is reported as a config
+// error, not silently collapsed into "Invalid plan".
+const PLAN_PRICE_ENV: Record<string, string> = {
+  solo: "STRIPE_PRICE_SOLO_MONTHLY",
+  starter: "STRIPE_PRICE_STARTER_MONTHLY",
+  growth: "STRIPE_PRICE_GROWTH_MONTHLY",
+  agency: "STRIPE_PRICE_AGENCY_MONTHLY",
 }
 
 export async function POST(request: Request) {
@@ -24,9 +27,19 @@ export async function POST(request: Request) {
       return Response.json({ error: "Not authenticated" }, { status: 401 })
     }
 
-    const priceId = PRICE_MAP[plan.toLowerCase()]
-    if (!priceId) {
+    const envName = PLAN_PRICE_ENV[String(plan).toLowerCase()]
+    if (!envName) {
       return Response.json({ error: "Invalid plan" }, { status: 400 })
+    }
+    const priceId = process.env[envName]
+    if (!priceId) {
+      // Known plan, but its Stripe price isn't configured in this environment.
+      // Surface distinctly so it shows up in logs / the ops dashboard.
+      console.error(`Checkout misconfigured: ${envName} is not set for plan "${plan}"`)
+      return Response.json(
+        { error: "This plan is temporarily unavailable. Please try another plan or contact support." },
+        { status: 503 }
+      )
     }
 
     const session = await getStripe().checkout.sessions.create({

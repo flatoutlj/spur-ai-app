@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import LinkedInPostGeneratorTool from "./LinkedInPostGeneratorTool"
+import EmailCaptureBar from "@/components/tools/EmailCaptureBar"
 
 export const metadata: Metadata = {
   title: "Free AI LinkedIn Post Generator | Spur AI",
@@ -184,6 +185,9 @@ export default function LinkedInPostGeneratorPage() {
             </p>
           </div>
           <LinkedInPostGeneratorTool />
+          <div className="mt-6">
+            <EmailCaptureBar source="tool-post-generator" prompt="Get 200+ proven hooks + a 30-day post calendar — free." />
+          </div>
         </div>
       </section>
 

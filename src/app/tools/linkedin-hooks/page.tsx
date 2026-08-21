@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import EmailCaptureBar from "@/components/tools/EmailCaptureBar"
 
 export const metadata: Metadata = {
   title: "50 Proven LinkedIn Hooks That Get 10x More Views | Spur AI",
@@ -209,6 +210,13 @@ export default function LinkedInHooksPage() {
               Jump to hooks ↓
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Email capture */}
+      <section className="px-4 sm:px-6 lg:px-8 -mt-2">
+        <div className="max-w-3xl mx-auto">
+          <EmailCaptureBar source="tool-hooks" prompt="Want all 200+ hooks in a swipe file + a 30-day post calendar? Get the free starter set." />
         </div>
       </section>
 

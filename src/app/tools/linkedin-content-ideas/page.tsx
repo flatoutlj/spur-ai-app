@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Script from "next/script"
+import EmailCaptureBar from "@/components/tools/EmailCaptureBar"
 
 export const metadata: Metadata = {
   title: "150 LinkedIn Content Ideas for B2B Professionals in 2026 | Spur AI",
@@ -248,6 +249,13 @@ export default function LinkedInContentIdeasPage() {
                 Browse all ideas ↓
               </a>
             </div>
+          </div>
+        </section>
+
+        {/* Email capture */}
+        <section className="px-4 sm:px-6 lg:px-8 -mt-2">
+          <div className="max-w-3xl mx-auto">
+            <EmailCaptureBar source="tool-content-ideas" prompt="Get a plug-and-play 30-day content calendar built from these ideas — free." />
           </div>
         </section>
 
