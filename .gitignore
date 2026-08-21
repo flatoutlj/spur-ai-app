@@ -42,6 +42,8 @@ yarn-error.log*
 # local ops scratch (may hold unredacted creds/price ids); committed copy lives in src/data
 /ops-status.json
 /ops-dashboard.html
+# owner action list contains admin creds — keep local only
+/OWNER_ACTIONS.md
 
 # vercel
 .vercel
