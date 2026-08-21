@@ -39,6 +39,10 @@ yarn-error.log*
 # agent runtime state (poll timestamps, generated keys, price-id scratch)
 .agent-state/
 
+# local ops scratch (may hold unredacted creds/price ids); committed copy lives in src/data
+/ops-status.json
+/ops-dashboard.html
+
 # vercel
 .vercel
 
