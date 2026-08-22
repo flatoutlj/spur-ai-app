@@ -71,6 +71,7 @@
     "Confirmed Solo checkout was never broken (STRIPE_PRICE_SOLO_MONTHLY already in prod).",
     "Drafted paste-ready distribution assets targeting AI-native audiences (2 subagents).",
     "SUBMITTED Spur AI to FutureTools (free, high-authority AI directory) via browser - awaiting their review.",
+    "OPENED PR #2022 to mahseema/awesome-ai-tools (6k stars) adding Spur AI under Social Media - awaiting maintainer merge.",
     "Built + shipped the API/MCP surface: /api/v1/generate-post (keyed), MCP server, and /developers docs+waitlist page (targets AI builders). Code verified; generation gated on the Anthropic key fix below.",
     "DIAGNOSED a critical outage: prod Anthropic key is invalid, so all AI generation has been failing."
   ],
