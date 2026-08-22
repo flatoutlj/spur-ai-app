@@ -1,7 +1,7 @@
 {
   "generated_by": "Claude (autonomous ops agent)",
-  "updated_at": "2026-08-21T21:55:00Z",
-  "headline": "Dashboard is LIVE at /ops. Env vars handled by the agent. Distribution is the only thing waiting on you.",
+  "updated_at": "2026-08-22T00:20:00Z",
+  "headline": "FutureTools submitted (free). The big AI directories now charge, and GitHub PRs need your login. Two decisions below unblock the rest.",
   "north_star": "First $1k MRR. Fastest path: $29 one-time pack + $19 Solo, funneled from free tools, marketed to AI-native users.",
   "metrics": {
     "email_captures": 1,
@@ -10,34 +10,65 @@
   },
   "needs_owner": [
     {
-      "id": "distribution",
+      "id": "github-login",
       "priority": "P1",
       "kind": "accounts",
-      "title": "Publish distribution assets (needs your logins / CAPTCHAs)",
-      "why": "All copy is drafted and paste-ready. Distribution is the #1 growth bottleneck; the agent cannot create accounts, log into community sites, or clear CAPTCHAs.",
-      "value": "See DISTRIBUTION_AI_DIRECTORIES.md + DISTRIBUTION_AI_COMMUNITIES.md",
-      "where": "AI-tool directories, GitHub awesome-list PRs, Reddit (r/SideProject, r/AI_Agents...), Show HN, Indie Hackers, @trispur brand accounts",
-      "eta": "60-90 min session"
+      "title": "Log into GitHub in Chrome so the agent can open free awesome-list PRs",
+      "why": "GitHub awesome-list PRs are free, high-quality backlinks to AI-native audiences. The agent can fill and open them in your browser, but you are not logged into GitHub in Chrome (and there is no gh CLI / token).",
+      "value": "Just sign in at github.com in the same Chrome profile, then tell the agent to continue.",
+      "where": "github.com -> Sign in",
+      "eta": "1 min"
+    },
+    {
+      "id": "community-posts",
+      "priority": "P1",
+      "kind": "accounts",
+      "title": "Reddit / Show HN / Indie Hackers posts (need your accounts + CAPTCHAs)",
+      "why": "Highest-intent AI-native distribution. Copy is drafted; the agent can drive the forms once you are logged in and can clear CAPTCHAs.",
+      "value": "See DISTRIBUTION_AI_COMMUNITIES.md",
+      "where": "r/SideProject, r/AI_Agents, r/SaaS, Show HN, Indie Hackers, @trispur brand accounts",
+      "eta": "45-60 min with you present"
     }
   ],
-  "spend_requests": [],
+  "spend_requests": [
+    {
+      "id": "futurepedia",
+      "priority": "spend",
+      "kind": "money",
+      "title": "Futurepedia listing - $497 one-time (free tier sold out)",
+      "why": "Futurepedia reaches ~400k proactive professionals/mo. Only paid listings remain ($497 Verified; $247 Basic is sold out). Real paid-distribution decision - your call.",
+      "value": "$497 one-time",
+      "where": "futurepedia.io/submit-tool",
+      "eta": "your decision"
+    },
+    {
+      "id": "taaft",
+      "priority": "spend",
+      "kind": "money",
+      "title": "There's An AI For That - paid launch (you're already logged in)",
+      "why": "Largest AI-native audience (~4-5M visitors/mo). Now pay-to-launch only. Price unconfirmed (a few hundred, with a $300 credit offer). Your call whether the reach is worth it.",
+      "value": "Paid launch (confirm price at checkout)",
+      "where": "theresanaiforthat.com/launch",
+      "eta": "your decision"
+    }
+  ],
   "done": [
     "Reviewed all pending changes; committed in clean commits (security hardening + monetization/SEO).",
     "Pushed to origin/main - git is now the source of truth (was silently behind prod).",
     "Hardened Stripe checkout: misconfigured plan now fails cleanly (503 + log).",
     "Added email capture to all 8 free tools (flagship post generator, hooks, content ideas) -> pack/Solo funnel.",
-    "Verified STRIPE_PRICE_SOLO_MONTHLY already exists in Vercel prod - Solo checkout was NOT broken (earlier alarm was stale local data).",
-    "Added ADMIN_USER / ADMIN_PASSWORD / ADMIN_SESSION_SECRET to Vercel prod via authenticated CLI + redeployed.",
-    "Built + shipped authenticated /ops dashboard on trispur.com (password login, live refresh, completed-task list) - verified working online.",
-    "Drafted paste-ready distribution assets targeting AI-native audiences (2 subagents)."
+    "Added ADMIN_* env vars to Vercel + verified /ops dashboard works online.",
+    "Confirmed Solo checkout was never broken (STRIPE_PRICE_SOLO_MONTHLY already in prod).",
+    "Drafted paste-ready distribution assets targeting AI-native audiences (2 subagents).",
+    "SUBMITTED Spur AI to FutureTools (free, high-authority AI directory) via browser - awaiting their review."
   ],
   "in_progress": [
-    "Nothing blocking - awaiting owner distribution session, or next autonomous block."
+    "Distribution: FutureTools done. Blocked on your GitHub login (free PRs) + spend decision on paid directories."
   ],
   "next_up": [
-    "Measure funnel: free tool -> email -> pack/Solo conversion.",
-    "Build an API/MCP surface so AI agents can call Spur's generators directly (fits the AI-native audience pivot).",
-    "Iterate pack/Solo CTA copy based on first conversion data."
+    "On your GitHub login: open awesome-list PRs (mahseema/awesome-ai-tools, steven2358/awesome-generative-ai, etc).",
+    "Build an API/MCP surface so AI agents can call Spur's generators directly (fits the AI-native pivot) - agent can do this solo.",
+    "Measure funnel: free tool -> email -> pack/Solo conversion."
   ],
-  "notes": "Traction is near-zero (1 email, 3 signups, 0 posts). Product, funnel, and dashboard are done; the bottleneck now is distribution + conversion."
+  "notes": "Finding: the free no-login AI-directory channel has mostly become paid (TAAFT, Futurepedia). FutureTools was a genuine free win. The durable free channels left are GitHub awesome-list PRs and community posts - both need your login."
 }
