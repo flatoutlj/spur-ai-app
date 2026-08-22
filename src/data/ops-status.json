@@ -1,7 +1,7 @@
 {
   "generated_by": "Claude (autonomous ops agent)",
-  "updated_at": "2026-08-22T00:20:00Z",
-  "headline": "FutureTools submitted (free). The big AI directories now charge, and GitHub PRs need your login. Two decisions below unblock the rest.",
+  "updated_at": "2026-08-22T01:10:00Z",
+  "headline": "🚨 CRITICAL: your Anthropic API key is invalid — ALL AI generation is down in prod. Everything else is built & waiting on this.",
   "north_star": "First $1k MRR. Fastest path: $29 one-time pack + $19 Solo, funneled from free tools, marketed to AI-native users.",
   "metrics": {
     "email_captures": 1,
@@ -9,6 +9,16 @@
     "posts_generated": 0
   },
   "needs_owner": [
+    {
+      "id": "anthropic-key",
+      "priority": "P0",
+      "kind": "accounts",
+      "title": "🚨 Give the agent a VALID Anthropic API key — the whole product is down without it",
+      "why": "The ANTHROPIC_API_KEY in Vercel prod is an 11-char placeholder (a real key is ~108 chars, sk-ant-api03-...). The key in .env.local is full-length but REVOKED (401). Tested both directly against Anthropic = 401 invalid. Result: every generator (all 8 free tools, /api/v1, the MCP server) fails. This explains posts_generated=0. Fix: create a key at console.anthropic.com and paste it to the agent; the agent will add it to Vercel + redeploy.",
+      "value": "Create at https://console.anthropic.com/settings/keys -> paste the sk-ant-... key to the agent",
+      "where": "Agent adds to Vercel prod ANTHROPIC_API_KEY + redeploys",
+      "eta": "3 min"
+    },
     {
       "id": "github-login",
       "priority": "P1",
@@ -60,15 +70,17 @@
     "Added ADMIN_* env vars to Vercel + verified /ops dashboard works online.",
     "Confirmed Solo checkout was never broken (STRIPE_PRICE_SOLO_MONTHLY already in prod).",
     "Drafted paste-ready distribution assets targeting AI-native audiences (2 subagents).",
-    "SUBMITTED Spur AI to FutureTools (free, high-authority AI directory) via browser - awaiting their review."
+    "SUBMITTED Spur AI to FutureTools (free, high-authority AI directory) via browser - awaiting their review.",
+    "Built + shipped the API/MCP surface: /api/v1/generate-post (keyed), MCP server, and /developers docs+waitlist page (targets AI builders). Code verified; generation gated on the Anthropic key fix below.",
+    "DIAGNOSED a critical outage: prod Anthropic key is invalid, so all AI generation has been failing."
   ],
   "in_progress": [
-    "Distribution: FutureTools done. Blocked on your GitHub login (free PRs) + spend decision on paid directories."
+    "BLOCKED on the Anthropic key (P0) - it breaks the core product. Everything else is shipped."
   ],
   "next_up": [
+    "The moment you paste a valid sk-ant key: agent adds it to Vercel, redeploys, and verifies all generators live.",
     "On your GitHub login: open awesome-list PRs (mahseema/awesome-ai-tools, steven2358/awesome-generative-ai, etc).",
-    "Build an API/MCP surface so AI agents can call Spur's generators directly (fits the AI-native pivot) - agent can do this solo.",
-    "Measure funnel: free tool -> email -> pack/Solo conversion."
+    "Measure funnel: free tool -> email -> pack/Solo conversion (meaningless until generation works again)."
   ],
-  "notes": "Finding: the free no-login AI-directory channel has mostly become paid (TAAFT, Futurepedia). FutureTools was a genuine free win. The durable free channels left are GitHub awesome-list PRs and community posts - both need your login."
+  "notes": "Biggest finding of the session: the product's core AI generation has been DOWN in production (invalid Anthropic key) - this likely explains zero traction as much as distribution does. Fixing the key is priority #1. Separately: free no-login AI directories have mostly gone paid; FutureTools was a genuine free win; remaining free channels (GitHub PRs, community posts) need your login."
 }
