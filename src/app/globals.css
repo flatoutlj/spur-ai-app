@@ -1,26 +1,201 @@
 @import "tailwindcss";
 
+/* ============================================================================
+   Spur AI — design tokens
+   ----------------------------------------------------------------------------
+   Three layers, in order:
+     1. Primitives  (:root)      raw values, never used directly in JSX
+     2. Semantic    (@theme)     role-named tokens — this is what components use
+     3. Utilities   (@utility)   the handful of composite classes the app relies on
+
+   Product context: a content engine for B2B consultants, coaches and agency
+   owners. The visual language is a credible business tool, not a consumer toy:
+   a near-black ink scale doing most of the work, with the blue→violet brand
+   gradient reserved almost exclusively for the primary action. If the gradient
+   is on screen more than once or twice per viewport, it has stopped meaning
+   "this is the thing to click".
+   ========================================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --- primitives: ink ---------------------------------------------------- */
+  --ink-950: #0b0f17;
+  --ink-900: #111827;
+  --ink-800: #1f2937;
+  --ink-700: #374151;
+  --ink-600: #4b5563;
+  --ink-500: #6b7280;
+  --ink-400: #9ca3af;
+  --ink-300: #d1d5db;
+  --ink-200: #e5e7eb;
+  --ink-100: #f3f4f6;
+  --ink-50:  #f9fafb;
+  --ink-0:   #ffffff;
+
+  /* --- primitives: brand -------------------------------------------------- */
+  --brand-700: #1d4ed8;
+  --brand-600: #2563eb;
+  --brand-500: #3b82f6;
+  --brand-100: #dbeafe;
+  --brand-50:  #eff6ff;
+
+  --accent-600: #7c3aed;
+  --accent-500: #8b5cf6;
+
+  /* --- primitives: status ------------------------------------------------- */
+  --positive-600: #16a34a;
+  --positive-50:  #f0fdf4;
+  --caution-600:  #d97706;
+  --caution-50:   #fffbeb;
+  --critical-600: #dc2626;
+  --critical-50:  #fef2f2;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  /* --- semantic colour ---------------------------------------------------- */
+  --color-surface:          var(--ink-0);    /* page + card background       */
+  --color-surface-sunken:   var(--ink-50);   /* wells, alternating sections  */
+  --color-surface-inverted: var(--ink-950);  /* dark bands, footer           */
+
+  --color-line:          var(--ink-200);     /* default hairline             */
+  --color-line-strong:   var(--ink-300);     /* inputs, interactive borders  */
+
+  --color-ink:           var(--ink-900);     /* primary text                 */
+  --color-ink-muted:     var(--ink-500);     /* secondary text               */
+  --color-ink-subtle:    var(--ink-400);     /* tertiary / metadata          */
+  --color-ink-inverted:  var(--ink-0);       /* text on inverted surfaces    */
+
+  --color-brand:         var(--brand-600);
+  --color-brand-hover:   var(--brand-700);
+  --color-brand-subtle:  var(--brand-50);
+  --color-accent:        var(--accent-600);
+
+  --color-positive:      var(--positive-600);
+  --color-caution:       var(--caution-600);
+  --color-critical:      var(--critical-600);
+
+  /* --- typography --------------------------------------------------------- */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
+
+  /* --- radius ------------------------------------------------------------- */
+  /* Four steps only. `rounded-full` stays reserved for pills and avatars.    */
+  --radius-control: 0.5rem;   /* inputs, small buttons                        */
+  --radius-card:    0.75rem;  /* cards, panels                                */
+  --radius-panel:   1rem;     /* large surfaces, modals                       */
+
+  /* --- elevation ---------------------------------------------------------- */
+  /* Tinted with ink rather than pure black so shadows read as depth, not dirt. */
+  --shadow-raised:  0 1px 2px 0 rgb(11 15 23 / 0.06),
+                    0 1px 3px 0 rgb(11 15 23 / 0.08);
+  --shadow-overlay: 0 4px 12px -2px rgb(11 15 23 / 0.10),
+                    0 2px 6px -2px rgb(11 15 23 / 0.06);
+  --shadow-modal:   0 24px 48px -12px rgb(11 15 23 / 0.18),
+                    0 8px 16px -8px rgb(11 15 23 / 0.10);
+
+  /* --- motion ------------------------------------------------------------- */
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ============================================================================
+   Base
+   ========================================================================== */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* One visible focus treatment for the whole app. Never remove this without
+   replacing it — keyboard users have no other way to locate themselves. */
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ============================================================================
+   Composite utilities
+   ----------------------------------------------------------------------------
+   These are referenced throughout the app (`gradient-bg` alone appears 154
+   times across 53 files) but had no definition, so every primary CTA was
+   rendering white text on a transparent background. Defined here as the single
+   source of truth.
+   ========================================================================== */
+
+@utility gradient-bg {
+  background-image: linear-gradient(
+    100deg,
+    var(--brand-600) 0%,
+    var(--accent-600) 100%
+  );
+}
+
+@utility gradient-text {
+  background-image: linear-gradient(
+    100deg,
+    var(--brand-600) 0%,
+    var(--accent-600) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  /* Keeps descenders (g, y, p) from being clipped by the text box. */
+  padding-bottom: 0.08em;
+}
+
+@utility hero-gradient {
+  background-image:
+    radial-gradient(
+      ellipse 80% 50% at 50% -10%,
+      rgb(37 99 235 / 0.10) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 85% 0%,
+      rgb(124 58 237 / 0.07) 0%,
+      transparent 70%
+    );
+  background-color: var(--color-surface);
+}
+
+@utility glow-pulse {
+  animation: glow-pulse 2.8s var(--ease-in-out-quart) infinite;
+}
+
+@utility float-animation {
+  animation: float 6s var(--ease-in-out-quart) infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgb(37 99 235 / 0.35); }
+  50%      { box-shadow: 0 0 0 10px rgb(37 99 235 / 0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+/* Respect the OS-level motion preference. Decorative loops stop entirely;
+   everything else collapses to a near-instant transition rather than 0s, so
+   state changes still read as changes. */
+@media (prefers-reduced-motion: reduce) {
+  .glow-pulse,
+  .float-animation {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import GenerationFallback from "@/components/tools/GenerationFallback"
 
 const FREE_LIMIT = 3
 const SESSION_KEY = "spur_gen_count"
@@ -247,9 +248,7 @@ export default function LinkedInPostGeneratorTool() {
       </div>
 
       {error && (
-        <div className="p-4 mx-6 mt-4 bg-red-50 border border-red-100 rounded-xl text-red-600 text-sm">
-          {error}
-        </div>
+        <GenerationFallback source="post-generator-error" onRetry={generate} />
       )}
 
       {post && (

@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import GenerationFallback from "@/components/tools/GenerationFallback"
 
 const NICHE_OPTIONS = [
   { value: "consulting", label: "Management Consulting" },
@@ -21,6 +22,9 @@ export default function CarouselGeneratorClient() {
   const [current, setCurrent] = useState(0)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
+  // Distinguishes an upstream/API failure (offer recovery) from the user
+  // simply not filling the field in (just tell them).
+  const [systemFailure, setSystemFailure] = useState(false)
   const [copied, setCopied] = useState(false)
 
   const generate = async () => {
@@ -30,6 +34,7 @@ export default function CarouselGeneratorClient() {
     }
     setLoading(true)
     setError("")
+    setSystemFailure(false)
     setSlides([])
     setCurrent(0)
     try {
@@ -43,6 +48,7 @@ export default function CarouselGeneratorClient() {
       setSlides(data.slides)
     } catch (e) {
       setError(e instanceof Error ? e.message : "Something went wrong. Please try again.")
+      setSystemFailure(true)
     } finally {
       setLoading(false)
     }
@@ -104,8 +110,12 @@ export default function CarouselGeneratorClient() {
         <p className="text-xs text-gray-400 mt-2 text-center">Free · Powered by Claude AI · 7 slides, ready to design in Canva or a doc</p>
       </div>
 
-      {error && (
+      {error && !systemFailure && (
         <div className="p-4 mx-6 mt-4 bg-red-50 border border-red-100 rounded-xl text-red-600 text-sm">{error}</div>
+      )}
+
+      {systemFailure && (
+        <GenerationFallback source="carousel-generator-error" onRetry={generate} />
       )}
 
       {slides.length > 0 && (
