@@ -1,7 +1,7 @@
 {
   "generated_by": "Claude (autonomous ops agent)",
-  "updated_at": "2026-08-24T19:30:04Z",
-  "headline": "5 releases shipped & verified live. Four separate sale-blockers fixed (invisible CTAs, no purchase fulfillment, pack delivering 1/5 of the offer, no tool->pack routing) plus fabricated social proof removed. Still blocked on TWO owner keys: Anthropic (product) and Resend (delivery). No revenue yet \u2014 no traffic yet.",
+  "updated_at": "2026-08-24T19:34:37Z",
+  "headline": "P0 RESOLVED \u2014 a valid Anthropic key reached prod and every AI surface is generating again (post, carousel, dashboard, /api/v1, MCP). Remaining blocker: RESEND_API_KEY is still unset, so a $29 buyer would be charged and receive no delivery email.",
   "north_star": "First $1k MRR. Fastest path: $29 one-time pack + $19 Solo, funneled from free tools, marketed to AI-native users.",
   "metrics": {
     "email_captures": 1,
@@ -71,10 +71,17 @@
     "VERIFIED the $29 Stripe payment link is live and functional (browser-checked) \u2014 it is NOT blocked by the Anthropic outage.",
     "Shipped GenerationFallback: failed generations now capture the lead, route to the 7 working tools, and offer the $29 pack, instead of dead-ending on a red 'Generation failed' box.",
     "Fixed the design-token layer: globals.css was still the create-next-app default, so gradient-bg (154 uses / 53 files) was undefined and every primary CTA rendered white-on-white.",
-    "Installed the owner-supplied Anthropic API key: validated it directly against the Anthropic API (200), replaced the 45-day-old placeholder in Vercel prod as a Sensitive var, redeployed prod (aliased to www.trispur.com), and verified /api/tools/generate-post and /api/tools/generate-carousel both return 200 with real generated content. posts_generated should stop being 0."
+    "Installed the owner-supplied Anthropic API key: validated it directly against the Anthropic API (200), replaced the 45-day-old placeholder in Vercel prod as a Sensitive var, redeployed prod (aliased to www.trispur.com), and verified /api/tools/generate-post and /api/tools/generate-carousel both return 200 with real generated content. posts_generated should stop being 0.",
+    "Removed all fabricated social proof from the live landing page (named real companies as customers; false advertising).",
+    "Built and deployed /api/mcp (remote Streamable HTTP MCP), removing the npm dependency for registry listing.",
+    "Extracted lib/linkedinPost.ts so REST and MCP share one prompt implementation.",
+    "Submitted all 48 URLs to IndexNow; crawled all 48 and found zero SEO defects.",
+    "VERIFIED research: the awesome-ai-tools PR #2022 is dead (0 merges in 90d, repo stale since 2025-12-31) \u2014 do not wait on it."
   ],
   "in_progress": [
-    "Everything technical that can be done without owner credentials is done and deployed."
+    "ONLY blocker left: RESEND_API_KEY unset in Vercel prod. Free tier at resend.com covers it.",
+    "Distribution: remote MCP endpoint is live, so the official registry + Smithery no longer need an npm publish. Nothing submitted yet.",
+    "No npm auth and no gh CLI on this machine \u2014 npm publish and awesome-list PRs remain blocked."
   ],
   "next_up": [
     "Acquisition is now the only bottleneck - the product works. Drive traffic to the two live AI tools.",
@@ -84,17 +91,18 @@
   "notes": "The core AI generation outage is FIXED as of this update - the invalid Anthropic key was the single point of failure taking down all AI generators, /api/v1 and the MCP server, and it is now resolved and verified in production. That removes the excuse layer: with the product working, zero traction is now a pure distribution/acquisition problem. Remaining free channels (GitHub awesome-list PRs, Reddit/Show HN/Indie Hackers) still need the owner's logins. Note for the owner: the key was pasted into a chat transcript, so rotate it at console.anthropic.com if that transcript is ever shared.",
   "metrics_updated_at": "2026-08-24T18:45:21.765482+00:00",
   "verified_at_source": {
-    "note": "All values below re-verified live this session, not carried over. AI-generation rows re-verified after the key fix.",
-    "site_home": "HTTP 200, 411ms",
-    "ai_generation_prod": "HTTP 200 - /api/tools/generate-post returns a real post (5.5s); /api/tools/generate-carousel returns real slides (7.6s)",
-    "anthropic_key_local": "HTTP 200 valid - new owner-supplied key, written to .env.local",
-    "anthropic_key_prod": "replaced this session; Sensitive var in Vercel prod, prod redeployed and verified live",
-    "stripe_pack_link": "LIVE \u2014 'The LinkedIn Founder Content Pack $29.00' renders and accepts payment",
-    "tools_working_without_ai": 7,
-    "tools_broken": [],
-    "last_signup": "2026-07-11 (44 days ago)",
-    "last_email_capture": "2026-07-11 (44 days ago)",
-    "revenue_to_date": "$0 (Stripe keys absent locally; 0 posts ever generated)"
+    "note": "Re-verified live against production at the time of writing.",
+    "anthropic_key_prod": "UPDATED \u2014 all AI endpoints return 200",
+    "post_generator": "200",
+    "carousel_generator": "200",
+    "dashboard_generate": "200",
+    "api_v1_keyed": "200",
+    "api_v1_unkeyed": "401 (correct)",
+    "remote_mcp_endpoint": "https://www.trispur.com/api/mcp \u2014 initialize/tools.list/tools.call verified end-to-end",
+    "resend_api_key_prod": "NOT SET \u2014 pack delivery email and all capture welcome emails silently do not send",
+    "false_social_proof": "REMOVED from production (Accenture/Deloitte/500+/12,000+/87%/fake testimonials/fake ticker)",
+    "sitemap": "48 URLs, all canonical www, submitted to IndexNow (accepted)",
+    "seo_crawl": "48/48 pages: 200, title, meta description, exactly one H1"
   },
   "blocked_on_owner": [
     {
