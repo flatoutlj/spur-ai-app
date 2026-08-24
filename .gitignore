@@ -54,3 +54,6 @@ next-env.d.ts
 
 # Claude Code worktrees
 .claude/worktrees/
+
+# Local ops activity log (chronological task history; local-only)
+/ops/activity-log.jsonl
