@@ -8,14 +8,24 @@ Canonical facts (keep these consistent everywhere):
 |---|---|
 | Server name | Spur AI |
 | Registry name | `io.github.flatoutlj/spur-ai` |
-| npm package | `spur-mcp-server` |
+| npm package | `spur-mcp-server` (**not published yet** — see note below) |
+| Remote URL | `https://www.trispur.com/api/mcp` (live) |
 | Repo | https://github.com/flatoutlj/spur-ai-app (server in `/mcp`) |
 | Docs | https://www.trispur.com/developers |
 | Contact | hello@trispur.com |
 | License | MIT |
-| Transport | stdio |
+| Transport | stdio (npm) **and** Streamable HTTP (remote URL) |
 | Tools | `generate_linkedin_post` |
 | Required env | `SPUR_API_KEY` |
+
+> **Submit using the remote URL, not the npm package.** `spur-mcp-server` has
+> never been published to npm, and the official registry verifies that the
+> package actually exists before it will list you — so any npm-based submission
+> fails today. The remote endpoint at `https://www.trispur.com/api/mcp` is live
+> and verified working, and the registry accepts it on the strength of DNS
+> ownership of trispur.com instead. Smithery likewise wants a URL rather than a
+> package. Publishing to npm remains a nice-to-have for `npx` users; it is no
+> longer a prerequisite for getting listed.
 
 ---
 
@@ -87,10 +97,12 @@ context you want worked in: the topic, the angle, a result to cite. It returns
 the post text, calibrated for a business-buyer audience rather than generic
 engagement bait.
 
-Setup is a single config block. The server runs over stdio via
-npx spur-mcp-server and reads one required environment variable, SPUR_API_KEY,
-which you get free at trispur.com/developers. SPUR_API_BASE is available for
-self-hosted or staging endpoints. Node 18 or newer.
+Setup is a single config block. Point your client at the hosted endpoint
+https://www.trispur.com/api/mcp and send your key in an x-api-key header — no
+install, no Node, nothing to run locally. Keys are free at
+trispur.com/developers. If you prefer a local process, the same server runs over
+stdio via npx spur-mcp-server on Node 18 or newer, reading SPUR_API_KEY from the
+environment.
 
 The same generation endpoint is available over plain HTTP at
 POST /api/v1/generate-post if you would rather skip MCP entirely.
@@ -112,9 +124,29 @@ Docs: https://www.trispur.com/developers
 `mcp` · `linkedin` · `content-generation` · `copywriting` · `marketing` · `b2b`
 · `social-media` · `claude` · `ai-agent` · `spur`
 
-## 6. Other directories worth the same copy
+## 6. Where to submit — verified 24 Aug 2026
 
-Reuse sections 2–5 verbatim for: the official MCP Registry (handled by
-`server.json`, no form), mcp.so, Glama, PulseMCP, Smithery, awesome-mcp-servers
-(PR to the list), and Cursor's directory. Most want name + one-liner + repo
-link + category, which is exactly section 1.
+Checked live. Anything not listed here was either dead, archived, or had gone paid.
+
+| Target | Free? | Needs | Notes |
+|---|---|---|---|
+| **Official MCP Registry** | Yes | GitHub OAuth or DNS | Submit as a **remote** server using `mcp/server.json`. Other directories poll this registry, so one publish propagates. Best single action. |
+| **punkpeye/awesome-mcp-servers** | Yes | GitHub account | 92.7k stars and genuinely active — 1,142 PRs merged in the last 90 days. Add to the **Marketing** section, alphabetical by `owner/repo`. Their CONTRIBUTING.md has an agent fast-track: put `🤖🤖🤖` in the PR title. |
+| **mcpservers.org/submit** | Yes | Nothing — email field only | Plain form, no account. Section 1 above is written for exactly this form. |
+| **Glama** | Yes | GitHub OAuth, Dockerfile | Auto-indexes from the repo. 77k servers, so expect burial. |
+| **Smithery** | Yes to list | Account | Takes the remote URL — now possible thanks to `/api/mcp`. |
+| **steven2358/awesome-generative-ai** | Yes | GitHub account | 12.5k stars, active, selective. Target the `Discoveries` section. |
+
+**Do not bother with:**
+
+- `mahseema/awesome-ai-tools` — **dead**. Zero PRs merged in 90 days, 1,132 open, last pushed 2025-12-31. The existing PR #2022 will not be merged; don't wait on it.
+- `appcypher/awesome-mcp-servers` — archived.
+- `wong2/awesome-mcp-servers` — generated, not PR-driven. Use mcpservers.org instead.
+- **PulseMCP** — submissions paused; it auto-ingests from the official registry anyway.
+- **mcp.so** — only a $39 paid path is visible.
+- Generic AI-tool directories (Futurepedia, There's An AI For That, Toolify) — all now paid, and free listings there send single-digit traffic with no purchase intent.
+
+**Set expectations honestly:** these listings are worth doing for agent discovery
+and backlinks. None of them will move the traffic number on their own, and the
+registry already carries 49 servers matching "linkedin", including at least one
+direct competitor.
