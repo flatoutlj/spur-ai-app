@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     title: "Spur AI vs Taplio: Which LinkedIn Tool Is Better for B2B? (2026)",
     description: "Pricing, features, and which tool gets B2B consultants more clients from LinkedIn.",
     type: "article",
-    url: "https://trispur.com/vs/taplio",
+    url: "https://www.trispur.com/vs/taplio",
   },
-  alternates: { canonical: "https://trispur.com/vs/taplio" },
+  alternates: { canonical: "https://www.trispur.com/vs/taplio" },
 }
 
 const COMPARISON = [

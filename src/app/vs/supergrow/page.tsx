@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     title: "Spur AI vs Supergrow: Which LinkedIn Tool Gets B2B Consultants More Clients? (2026)",
     description: "Pricing, features, and which tool actually helps B2B consultants and agency owners get clients from LinkedIn.",
     type: "article",
-    url: "https://trispur.com/vs/supergrow",
+    url: "https://www.trispur.com/vs/supergrow",
   },
-  alternates: { canonical: "https://trispur.com/vs/supergrow" },
+  alternates: { canonical: "https://www.trispur.com/vs/supergrow" },
 }
 
 const COMPARISON = [

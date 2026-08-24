@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     title: "17 LinkedIn Networking Tips That Actually Build Business Relationships (2026)",
     description: "Stop collecting connections. Build real LinkedIn relationships that generate referrals and clients.",
     type: "article",
-    url: "https://trispur.com/blog/linkedin-networking-tips",
+    url: "https://www.trispur.com/blog/linkedin-networking-tips",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/blog/linkedin-networking-tips" },
+  alternates: { canonical: "https://www.trispur.com/blog/linkedin-networking-tips" },
 }
 
 const articleSchema = {
@@ -30,11 +30,11 @@ const articleSchema = {
   description:
     "Stop collecting connections. These 17 LinkedIn networking tips help B2B professionals build real relationships that lead to referrals, partnerships, and paying clients.",
   author: { "@type": "Organization", name: "Spur AI" },
-  publisher: { "@type": "Organization", name: "Spur AI", url: "https://trispur.com" },
+  publisher: { "@type": "Organization", name: "Spur AI", url: "https://www.trispur.com" },
   datePublished: "2026-07-11",
   dateModified: "2026-07-11",
-  url: "https://trispur.com/blog/linkedin-networking-tips",
-  mainEntityOfPage: "https://trispur.com/blog/linkedin-networking-tips",
+  url: "https://www.trispur.com/blog/linkedin-networking-tips",
+  mainEntityOfPage: "https://www.trispur.com/blog/linkedin-networking-tips",
 }
 
 const faqSchema = {

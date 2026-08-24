@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     title: "10 LinkedIn Summary Examples That Convert Visitors into Clients (2026)",
     description: "Real LinkedIn About section examples with templates for consultants, coaches, and agency owners.",
     type: "article",
-    url: "https://trispur.com/blog/linkedin-summary-examples",
+    url: "https://www.trispur.com/blog/linkedin-summary-examples",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/blog/linkedin-summary-examples" },
+  alternates: { canonical: "https://www.trispur.com/blog/linkedin-summary-examples" },
 }
 
 const articleSchema = {
@@ -30,10 +30,10 @@ const articleSchema = {
   description:
     "Real LinkedIn About section examples with templates and a formula for writing a summary that generates inbound leads from your ideal clients.",
   author: { "@type": "Organization", name: "Spur AI" },
-  publisher: { "@type": "Organization", name: "Spur AI", url: "https://trispur.com" },
+  publisher: { "@type": "Organization", name: "Spur AI", url: "https://www.trispur.com" },
   datePublished: "2026-07-11",
   dateModified: "2026-07-11",
-  url: "https://trispur.com/blog/linkedin-summary-examples",
+  url: "https://www.trispur.com/blog/linkedin-summary-examples",
 }
 
 const faqSchema = {

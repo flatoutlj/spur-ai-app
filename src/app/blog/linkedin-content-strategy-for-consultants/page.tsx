@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description:
       "What to post, how often, and how to convert LinkedIn followers into paying clients. The complete guide for B2B consultants.",
     type: "article",
-    url: "https://trispur.com/blog/linkedin-content-strategy-for-consultants",
+    url: "https://www.trispur.com/blog/linkedin-content-strategy-for-consultants",
   },
   twitter: {
     card: "summary_large_image",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
       "The complete guide: what to post, how often, and how to convert LinkedIn followers into paying clients.",
   },
   alternates: {
-    canonical: "https://trispur.com/blog/linkedin-content-strategy-for-consultants",
+    canonical: "https://www.trispur.com/blog/linkedin-content-strategy-for-consultants",
   },
 }
 
@@ -42,20 +42,20 @@ const articleSchema = {
   author: {
     "@type": "Organization",
     name: "Spur AI",
-    url: "https://trispur.com",
+    url: "https://www.trispur.com",
   },
   publisher: {
     "@type": "Organization",
     name: "Spur AI",
-    url: "https://trispur.com",
+    url: "https://www.trispur.com",
     logo: {
       "@type": "ImageObject",
-      url: "https://trispur.com/logo.png",
+      url: "https://www.trispur.com/logo.png",
     },
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://trispur.com/blog/linkedin-content-strategy-for-consultants",
+    "@id": "https://www.trispur.com/blog/linkedin-content-strategy-for-consultants",
   },
 }
 

@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     title: "LinkedIn for Business: How to Get Clients and Generate Leads (2026)",
     description: "Practical guide to using LinkedIn for business growth — from profile setup to generating inbound leads.",
     type: "article",
-    url: "https://trispur.com/blog/linkedin-for-business",
+    url: "https://www.trispur.com/blog/linkedin-for-business",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/blog/linkedin-for-business" },
+  alternates: { canonical: "https://www.trispur.com/blog/linkedin-for-business" },
 }
 
 const articleSchema = {
@@ -29,10 +29,10 @@ const articleSchema = {
   headline: "LinkedIn for Business: How to Get Clients and Generate Leads (2026)",
   description: "Practical guide to using LinkedIn for business growth — profile setup, content strategy, and generating inbound leads.",
   author: { "@type": "Organization", name: "Spur AI" },
-  publisher: { "@type": "Organization", name: "Spur AI", url: "https://trispur.com" },
+  publisher: { "@type": "Organization", name: "Spur AI", url: "https://www.trispur.com" },
   datePublished: "2026-07-11",
   dateModified: "2026-07-11",
-  url: "https://trispur.com/blog/linkedin-for-business",
+  url: "https://www.trispur.com/blog/linkedin-for-business",
 }
 
 const faqSchema = {

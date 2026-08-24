@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     title: "Spur AI vs ChatGPT for LinkedIn: Which Generates Better B2B Posts? (2026)",
     description: "ChatGPT is a general AI. Spur AI is LinkedIn-specific. Here's why that difference matters for B2B consultants and agency owners.",
     type: "article",
-    url: "https://trispur.com/vs/chatgpt",
+    url: "https://www.trispur.com/vs/chatgpt",
   },
-  alternates: { canonical: "https://trispur.com/vs/chatgpt" },
+  alternates: { canonical: "https://www.trispur.com/vs/chatgpt" },
 }
 
 const COMPARISON = [

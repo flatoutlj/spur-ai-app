@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description:
       "The algorithm, the 5 elements of high-engagement posts, 10 formats that consistently work, and what to avoid. The complete guide for B2B professionals.",
     type: "article",
-    url: "https://trispur.com/blog/how-to-write-linkedin-posts-that-get-engagement",
+    url: "https://www.trispur.com/blog/how-to-write-linkedin-posts-that-get-engagement",
   },
   twitter: {
     card: "summary_large_image",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
       "10 post formats, hook formulas, the 3-2-1 rule, and what NOT to do. Your complete LinkedIn post writing guide.",
   },
   alternates: {
-    canonical: "https://trispur.com/blog/how-to-write-linkedin-posts-that-get-engagement",
+    canonical: "https://www.trispur.com/blog/how-to-write-linkedin-posts-that-get-engagement",
   },
 }
 
@@ -43,20 +43,20 @@ const articleSchema = {
   author: {
     "@type": "Organization",
     name: "Spur AI",
-    url: "https://trispur.com",
+    url: "https://www.trispur.com",
   },
   publisher: {
     "@type": "Organization",
     name: "Spur AI",
-    url: "https://trispur.com",
+    url: "https://www.trispur.com",
     logo: {
       "@type": "ImageObject",
-      url: "https://trispur.com/logo.png",
+      url: "https://www.trispur.com/logo.png",
     },
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://trispur.com/blog/how-to-write-linkedin-posts-that-get-engagement",
+    "@id": "https://www.trispur.com/blog/how-to-write-linkedin-posts-that-get-engagement",
   },
 }
 

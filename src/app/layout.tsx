@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://trispur.com"),
+  metadataBase: new URL("https://www.trispur.com"),
   title: {
     default: "Spur AI — Turn LinkedIn Into Your #1 B2B Lead Source",
     template: "%s | Spur AI",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description:
       "AI-powered LinkedIn content engine for B2B consultants, coaches, and agency owners.",
     type: "website",
-    url: "https://trispur.com",
+    url: "https://www.trispur.com",
     siteName: "Spur AI",
   },
   twitter: {
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     site: "@spuraiapp",
   },
   alternates: {
-    canonical: "https://trispur.com",
+    canonical: "https://www.trispur.com",
   },
 };
 

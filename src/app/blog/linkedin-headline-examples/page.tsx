@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     description:
       "40 LinkedIn headline examples with copy-paste formulas for consultants, coaches, and B2B professionals who want more inbound leads.",
     type: "article",
-    url: "https://trispur.com/blog/linkedin-headline-examples",
+    url: "https://www.trispur.com/blog/linkedin-headline-examples",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/blog/linkedin-headline-examples" },
+  alternates: { canonical: "https://www.trispur.com/blog/linkedin-headline-examples" },
 }
 
 const jsonLd = {
@@ -29,10 +29,10 @@ const jsonLd = {
   headline: "40 LinkedIn Headline Examples That Get Clicks (2026 Guide)",
   description:
     "Real LinkedIn headline examples for B2B consultants, coaches, and agency owners — with formulas for writing one that converts profile visitors into leads.",
-  url: "https://trispur.com/blog/linkedin-headline-examples",
+  url: "https://www.trispur.com/blog/linkedin-headline-examples",
   datePublished: "2026-07-11",
   dateModified: "2026-07-11",
-  publisher: { "@type": "Organization", name: "Spur AI", url: "https://trispur.com" },
+  publisher: { "@type": "Organization", name: "Spur AI", url: "https://www.trispur.com" },
   author: { "@type": "Organization", name: "Spur AI" },
 }
 

@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     title: "50 LinkedIn Post Ideas for B2B Professionals (2026)",
     description: "50 proven LinkedIn post ideas with hooks and frameworks for consultants, coaches, and agency owners.",
     type: "article",
-    url: "https://trispur.com/blog/linkedin-post-ideas",
+    url: "https://www.trispur.com/blog/linkedin-post-ideas",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/blog/linkedin-post-ideas" },
+  alternates: { canonical: "https://www.trispur.com/blog/linkedin-post-ideas" },
 }
 
 const articleSchema = {
@@ -29,10 +29,10 @@ const articleSchema = {
   headline: "50 LinkedIn Post Ideas for B2B Professionals (2026)",
   description: "50 proven LinkedIn post ideas with hooks and frameworks for consultants, coaches, and agency owners.",
   author: { "@type": "Organization", name: "Spur AI" },
-  publisher: { "@type": "Organization", name: "Spur AI", url: "https://trispur.com" },
+  publisher: { "@type": "Organization", name: "Spur AI", url: "https://www.trispur.com" },
   datePublished: "2026-07-11",
   dateModified: "2026-07-11",
-  url: "https://trispur.com/blog/linkedin-post-ideas",
+  url: "https://www.trispur.com/blog/linkedin-post-ideas",
 }
 
 const faqSchema = {

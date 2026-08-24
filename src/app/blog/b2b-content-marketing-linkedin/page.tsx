@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description:
       "The complete B2B content marketing strategy for LinkedIn in 2026. Learn which content formats get the most reach, how to build a content calendar, and how to convert readers into paying clients.",
     type: "article",
-    url: "https://trispur.com/blog/b2b-content-marketing-linkedin",
+    url: "https://www.trispur.com/blog/b2b-content-marketing-linkedin",
   },
   twitter: {
     card: "summary_large_image",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
       "The complete 2026 B2B LinkedIn content marketing strategy — formats, cadence, content calendar, and converting readers into revenue.",
   },
   alternates: {
-    canonical: "https://trispur.com/blog/b2b-content-marketing-linkedin",
+    canonical: "https://www.trispur.com/blog/b2b-content-marketing-linkedin",
   },
 }
 
@@ -43,20 +43,20 @@ const articleSchema = {
   author: {
     "@type": "Organization",
     name: "Spur AI",
-    url: "https://trispur.com",
+    url: "https://www.trispur.com",
   },
   publisher: {
     "@type": "Organization",
     name: "Spur AI",
-    url: "https://trispur.com",
+    url: "https://www.trispur.com",
     logo: {
       "@type": "ImageObject",
-      url: "https://trispur.com/logo.png",
+      url: "https://www.trispur.com/logo.png",
     },
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://trispur.com/blog/b2b-content-marketing-linkedin",
+    "@id": "https://www.trispur.com/blog/b2b-content-marketing-linkedin",
   },
 }
 

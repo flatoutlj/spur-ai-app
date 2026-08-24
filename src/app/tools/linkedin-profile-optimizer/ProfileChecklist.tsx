@@ -52,7 +52,7 @@ function getScoreLabel(score: number): { label: string; color: string; bg: strin
   }
 }
 
-const SHARE_URL = "https://trispur.com/tools/linkedin-profile-optimizer"
+const SHARE_URL = "https://www.trispur.com/tools/linkedin-profile-optimizer"
 
 export default function ProfileChecklist() {
   const [checked, setChecked] = useState<Set<number>>(new Set())

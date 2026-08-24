@@ -62,7 +62,7 @@ export async function POST(request: Request) {
               <p style="margin: 0 0 16px; font-weight: 600;">Hook #3 — The number:</p>
               <p style="margin: 0; color: #555; font-style: italic;">"I analyzed 500 LinkedIn posts. These 3 things appear in every viral B2B post."</p>
             </div>
-            <a href="https://trispur.com/signup?email=${encodeURIComponent(email)}" style="display: inline-block; background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: white; font-weight: 700; padding: 14px 28px; border-radius: 100px; text-decoration: none; font-size: 15px;">
+            <a href="https://www.trispur.com/signup?email=${encodeURIComponent(email)}" style="display: inline-block; background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: white; font-weight: 700; padding: 14px 28px; border-radius: 100px; text-decoration: none; font-size: 15px;">
               Start your free trial →
             </a>
             <p style="font-size: 13px; color: #999; margin: 32px 0 0;">

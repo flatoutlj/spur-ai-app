@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
     const key = validateApiKey(req)
     if (!key) {
       return json(
-        { error: "Invalid or missing API key. Get one at https://trispur.com/developers" },
+        { error: "Invalid or missing API key. Get one at https://www.trispur.com/developers" },
         401
       )
     }

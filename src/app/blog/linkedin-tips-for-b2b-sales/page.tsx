@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description:
       "Stop sending cold DMs that get ignored. These 7 LinkedIn tips for B2B sales are based on relationship-based selling that converts prospects into paying clients.",
     type: "article",
-    url: "https://trispur.com/blog/linkedin-tips-for-b2b-sales",
+    url: "https://www.trispur.com/blog/linkedin-tips-for-b2b-sales",
   },
   twitter: {
     card: "summary_large_image",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
       "Relationship-based LinkedIn selling for B2B professionals — 7 proven strategies that turn followers into clients.",
   },
   alternates: {
-    canonical: "https://trispur.com/blog/linkedin-tips-for-b2b-sales",
+    canonical: "https://www.trispur.com/blog/linkedin-tips-for-b2b-sales",
   },
 }
 
@@ -43,20 +43,20 @@ const articleSchema = {
   author: {
     "@type": "Organization",
     name: "Spur AI",
-    url: "https://trispur.com",
+    url: "https://www.trispur.com",
   },
   publisher: {
     "@type": "Organization",
     name: "Spur AI",
-    url: "https://trispur.com",
+    url: "https://www.trispur.com",
     logo: {
       "@type": "ImageObject",
-      url: "https://trispur.com/logo.png",
+      url: "https://www.trispur.com/logo.png",
     },
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://trispur.com/blog/linkedin-tips-for-b2b-sales",
+    "@id": "https://www.trispur.com/blog/linkedin-tips-for-b2b-sales",
   },
 }
 

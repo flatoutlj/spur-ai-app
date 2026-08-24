@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description:
       "Generate high-performing LinkedIn posts in seconds. Free tool for B2B consultants, coaches, and agency owners.",
     type: "website",
-    url: "https://trispur.com/tools/linkedin-post-generator",
+    url: "https://www.trispur.com/tools/linkedin-post-generator",
   },
   twitter: {
     card: "summary_large_image",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
       "Generate high-performing LinkedIn posts in seconds. Free tool for B2B professionals.",
   },
   alternates: {
-    canonical: "https://trispur.com/tools/linkedin-post-generator",
+    canonical: "https://www.trispur.com/tools/linkedin-post-generator",
   },
 }
 

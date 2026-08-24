@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     title: "LinkedIn Marketing: The Complete B2B Strategy Guide (2026)",
     description: "The complete LinkedIn marketing guide for B2B professionals — profile, content, lead gen, and ROI.",
     type: "article",
-    url: "https://trispur.com/blog/linkedin-marketing",
+    url: "https://www.trispur.com/blog/linkedin-marketing",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/blog/linkedin-marketing" },
+  alternates: { canonical: "https://www.trispur.com/blog/linkedin-marketing" },
 }
 
 const articleSchema = {
@@ -29,10 +29,10 @@ const articleSchema = {
   headline: "LinkedIn Marketing: The Complete B2B Strategy Guide (2026)",
   description: "Complete LinkedIn marketing guide for B2B professionals — profile optimization, content strategy, lead generation, and measuring ROI.",
   author: { "@type": "Organization", name: "Spur AI" },
-  publisher: { "@type": "Organization", name: "Spur AI", url: "https://trispur.com" },
+  publisher: { "@type": "Organization", name: "Spur AI", url: "https://www.trispur.com" },
   datePublished: "2026-07-11",
   dateModified: "2026-07-11",
-  url: "https://trispur.com/blog/linkedin-marketing",
+  url: "https://www.trispur.com/blog/linkedin-marketing",
 }
 
 const faqSchema = {

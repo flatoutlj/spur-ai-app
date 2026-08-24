@@ -19,14 +19,14 @@ export const metadata: Metadata = {
     description:
       "Generate 5 LinkedIn headline formulas with your info filled in. Free tool for B2B professionals.",
     type: "website",
-    url: "https://trispur.com/tools/linkedin-headline-generator",
+    url: "https://www.trispur.com/tools/linkedin-headline-generator",
   },
   twitter: {
     card: "summary_large_image",
     title: "Free LinkedIn Headline Generator",
     description: "Generate 5 headline variations based on your role, ICP, and result you deliver.",
   },
-  alternates: { canonical: "https://trispur.com/tools/linkedin-headline-generator" },
+  alternates: { canonical: "https://www.trispur.com/tools/linkedin-headline-generator" },
 }
 
 const beforeAfterExamples = [

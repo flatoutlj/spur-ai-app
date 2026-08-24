@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     title: "Free LinkedIn Bio Generator — 5 Templates",
     description: "Enter your role, ICP, and results. Get 5 LinkedIn About section variations ready to copy.",
     type: "website",
-    url: "https://trispur.com/tools/linkedin-bio-generator",
+    url: "https://www.trispur.com/tools/linkedin-bio-generator",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/tools/linkedin-bio-generator" },
+  alternates: { canonical: "https://www.trispur.com/tools/linkedin-bio-generator" },
 }
 
 const EXAMPLES = [

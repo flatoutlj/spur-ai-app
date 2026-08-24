@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description:
       "Build a LinkedIn personal brand that attracts clients, not just connections. The complete 2026 playbook covering profile optimization, content strategy, and turning followers into revenue.",
     type: "article",
-    url: "https://trispur.com/blog/linkedin-personal-branding",
+    url: "https://www.trispur.com/blog/linkedin-personal-branding",
   },
   twitter: {
     card: "summary_large_image",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
       "The complete LinkedIn personal branding playbook for B2B professionals — from positioning to content to converting followers into clients.",
   },
   alternates: {
-    canonical: "https://trispur.com/blog/linkedin-personal-branding",
+    canonical: "https://www.trispur.com/blog/linkedin-personal-branding",
   },
 }
 
@@ -43,20 +43,20 @@ const articleSchema = {
   author: {
     "@type": "Organization",
     name: "Spur AI",
-    url: "https://trispur.com",
+    url: "https://www.trispur.com",
   },
   publisher: {
     "@type": "Organization",
     name: "Spur AI",
-    url: "https://trispur.com",
+    url: "https://www.trispur.com",
     logo: {
       "@type": "ImageObject",
-      url: "https://trispur.com/logo.png",
+      url: "https://www.trispur.com/logo.png",
     },
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://trispur.com/blog/linkedin-personal-branding",
+    "@id": "https://www.trispur.com/blog/linkedin-personal-branding",
   },
 }
 

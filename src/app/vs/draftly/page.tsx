@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     title: "Spur AI vs Draftly: Which LinkedIn Content Tool Is Better? (2026)",
     description: "Pricing, features, and which tool gets B2B consultants more clients from LinkedIn.",
     type: "article",
-    url: "https://trispur.com/vs/draftly",
+    url: "https://www.trispur.com/vs/draftly",
   },
-  alternates: { canonical: "https://trispur.com/vs/draftly" },
+  alternates: { canonical: "https://www.trispur.com/vs/draftly" },
 }
 
 const COMPARISON = [

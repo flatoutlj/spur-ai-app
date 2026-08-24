@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     title: "Free LinkedIn Content Calendar Generator",
     description: "Plan 2–8 weeks of LinkedIn content in under 2 minutes. Topic ideas and hooks included.",
     type: "website",
-    url: "https://trispur.com/tools/linkedin-content-calendar",
+    url: "https://www.trispur.com/tools/linkedin-content-calendar",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/tools/linkedin-content-calendar" },
+  alternates: { canonical: "https://www.trispur.com/tools/linkedin-content-calendar" },
 }
 
 const CALENDAR_EXAMPLE = [

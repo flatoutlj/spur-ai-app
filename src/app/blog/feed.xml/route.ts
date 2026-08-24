@@ -1,4 +1,4 @@
-const BASE = "https://trispur.com"
+const BASE = "https://www.trispur.com"
 
 const POSTS = [
   {

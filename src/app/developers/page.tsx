@@ -20,10 +20,10 @@ export const metadata: Metadata = {
     description:
       "Add Claude-powered LinkedIn content generation to your AI agent. REST API + MCP server for builders.",
     type: "website",
-    url: "https://trispur.com/developers",
+    url: "https://www.trispur.com/developers",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/developers" },
+  alternates: { canonical: "https://www.trispur.com/developers" },
 }
 
 const jsonLd = {
@@ -32,7 +32,7 @@ const jsonLd = {
   name: "Spur AI API",
   description:
     "Claude-powered API and MCP server for generating LinkedIn content. Callable by AI agents via REST or the Model Context Protocol.",
-  provider: { "@type": "Organization", name: "Spur AI", url: "https://trispur.com" },
+  provider: { "@type": "Organization", name: "Spur AI", url: "https://www.trispur.com" },
 }
 
 function Code({ children }: { children: string }) {
@@ -90,7 +90,7 @@ export default function DevelopersPage() {
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-3">REST API</h2>
             <p className="text-gray-500 mb-4">One authenticated POST. Works from any language or agent framework.</p>
-            <Code>{`curl -X POST https://trispur.com/api/v1/generate-post \\
+            <Code>{`curl -X POST https://www.trispur.com/api/v1/generate-post \\
   -H "x-api-key: spur_sk_..." \\
   -H "Content-Type: application/json" \\
   -d '{

@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     description:
       "The 10 best LinkedIn AI tools compared on price, features, and fit — for consultants, coaches, agencies, and creators.",
     type: "article",
-    url: "https://trispur.com/blog/best-linkedin-ai-tools",
+    url: "https://www.trispur.com/blog/best-linkedin-ai-tools",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/blog/best-linkedin-ai-tools" },
+  alternates: { canonical: "https://www.trispur.com/blog/best-linkedin-ai-tools" },
 }
 
 const jsonLd = {
@@ -29,10 +29,10 @@ const jsonLd = {
   headline: "10 Best LinkedIn AI Tools in 2026 (Ranked & Compared)",
   description:
     "The 10 best LinkedIn AI tools for 2026, compared on price, features, and who they're for.",
-  url: "https://trispur.com/blog/best-linkedin-ai-tools",
+  url: "https://www.trispur.com/blog/best-linkedin-ai-tools",
   datePublished: "2026-07-11",
   dateModified: "2026-07-11",
-  publisher: { "@type": "Organization", name: "Spur AI", url: "https://trispur.com" },
+  publisher: { "@type": "Organization", name: "Spur AI", url: "https://www.trispur.com" },
   author: { "@type": "Organization", name: "Spur AI" },
 }
 

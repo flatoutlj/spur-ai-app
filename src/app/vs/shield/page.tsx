@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     title: "Spur AI vs Shield: LinkedIn Content Creation vs Analytics — Which Do You Need? (2026)",
     description: "Shield analyzes what's working. Spur AI creates the content to make things work. Here's an honest comparison for B2B professionals.",
     type: "article",
-    url: "https://trispur.com/vs/shield",
+    url: "https://www.trispur.com/vs/shield",
   },
-  alternates: { canonical: "https://trispur.com/vs/shield" },
+  alternates: { canonical: "https://www.trispur.com/vs/shield" },
 }
 
 const COMPARISON = [

@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     description:
       "12 proven LinkedIn carousel frameworks with slide-by-slide structures — plus a free AI carousel generator.",
     type: "article",
-    url: "https://trispur.com/blog/linkedin-carousel-post-ideas",
+    url: "https://www.trispur.com/blog/linkedin-carousel-post-ideas",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/blog/linkedin-carousel-post-ideas" },
+  alternates: { canonical: "https://www.trispur.com/blog/linkedin-carousel-post-ideas" },
 }
 
 const jsonLd = {
@@ -29,10 +29,10 @@ const jsonLd = {
   headline: "12 LinkedIn Carousel Post Ideas That Get Saved & Shared (2026)",
   description:
     "12 proven LinkedIn carousel frameworks for B2B professionals — with slide-by-slide structures.",
-  url: "https://trispur.com/blog/linkedin-carousel-post-ideas",
+  url: "https://www.trispur.com/blog/linkedin-carousel-post-ideas",
   datePublished: "2026-07-12",
   dateModified: "2026-07-12",
-  publisher: { "@type": "Organization", name: "Spur AI", url: "https://trispur.com" },
+  publisher: { "@type": "Organization", name: "Spur AI", url: "https://www.trispur.com" },
   author: { "@type": "Organization", name: "Spur AI" },
 }
 

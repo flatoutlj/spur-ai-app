@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description:
       "The exact system B2B consultants use to get clients from LinkedIn — without cold outreach or paid ads. Step-by-step guide.",
     type: "article",
-    url: "https://trispur.com/blog/how-to-get-clients-on-linkedin",
+    url: "https://www.trispur.com/blog/how-to-get-clients-on-linkedin",
   },
   twitter: {
     card: "summary_large_image",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
       "Proven 5-step system for LinkedIn lead generation. How B2B consultants fill their pipeline with inbound leads.",
   },
   alternates: {
-    canonical: "https://trispur.com/blog/how-to-get-clients-on-linkedin",
+    canonical: "https://www.trispur.com/blog/how-to-get-clients-on-linkedin",
   },
 }
 
@@ -44,20 +44,20 @@ const articleSchema = {
   author: {
     "@type": "Organization",
     name: "Spur AI",
-    url: "https://trispur.com",
+    url: "https://www.trispur.com",
   },
   publisher: {
     "@type": "Organization",
     name: "Spur AI",
-    url: "https://trispur.com",
+    url: "https://www.trispur.com",
     logo: {
       "@type": "ImageObject",
-      url: "https://trispur.com/logo.png",
+      url: "https://www.trispur.com/logo.png",
     },
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://trispur.com/blog/how-to-get-clients-on-linkedin",
+    "@id": "https://www.trispur.com/blog/how-to-get-clients-on-linkedin",
   },
 }
 

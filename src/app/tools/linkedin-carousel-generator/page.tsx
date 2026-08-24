@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     description:
       "Generate a 7-slide LinkedIn carousel in seconds with AI. Free, no signup. For B2B consultants, coaches, and agencies.",
     type: "website",
-    url: "https://trispur.com/tools/linkedin-carousel-generator",
+    url: "https://www.trispur.com/tools/linkedin-carousel-generator",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/tools/linkedin-carousel-generator" },
+  alternates: { canonical: "https://www.trispur.com/tools/linkedin-carousel-generator" },
 }
 
 const faqLd = {

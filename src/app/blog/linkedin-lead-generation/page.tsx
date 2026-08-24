@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description:
       "The 9 best LinkedIn lead generation strategies for B2B professionals in 2026. From content-led inbound to warm DM sequences, see exactly how top consultants get clients from LinkedIn.",
     type: "article",
-    url: "https://trispur.com/blog/linkedin-lead-generation",
+    url: "https://www.trispur.com/blog/linkedin-lead-generation",
   },
   twitter: {
     card: "summary_large_image",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
       "9 proven LinkedIn lead generation strategies for B2B consultants and agency owners — from profile optimization to content-to-DM sequences.",
   },
   alternates: {
-    canonical: "https://trispur.com/blog/linkedin-lead-generation",
+    canonical: "https://www.trispur.com/blog/linkedin-lead-generation",
   },
 }
 
@@ -43,20 +43,20 @@ const articleSchema = {
   author: {
     "@type": "Organization",
     name: "Spur AI",
-    url: "https://trispur.com",
+    url: "https://www.trispur.com",
   },
   publisher: {
     "@type": "Organization",
     name: "Spur AI",
-    url: "https://trispur.com",
+    url: "https://www.trispur.com",
     logo: {
       "@type": "ImageObject",
-      url: "https://trispur.com/logo.png",
+      url: "https://www.trispur.com/logo.png",
     },
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://trispur.com/blog/linkedin-lead-generation",
+    "@id": "https://www.trispur.com/blog/linkedin-lead-generation",
   },
 }
 

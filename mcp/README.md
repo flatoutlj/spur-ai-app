@@ -1,12 +1,12 @@
 # Spur AI — MCP server
 
-Give your AI agent the ability to generate LinkedIn content with [Spur AI](https://trispur.com) (Claude-powered).
+Give your AI agent the ability to generate LinkedIn content with [Spur AI](https://www.trispur.com) (Claude-powered).
 
 ## Install
 
 ```bash
 npm i @modelcontextprotocol/sdk
-export SPUR_API_KEY=spur_sk_...   # get one at https://trispur.com/developers
+export SPUR_API_KEY=spur_sk_...   # get one at https://www.trispur.com/developers
 node spur-mcp-server.mjs
 ```
 
@@ -49,10 +49,10 @@ Example prompt to your agent:
 ## Direct HTTP (no MCP)
 
 ```bash
-curl -X POST https://trispur.com/api/v1/generate-post \
+curl -X POST https://www.trispur.com/api/v1/generate-post \
   -H "x-api-key: spur_sk_..." \
   -H "Content-Type: application/json" \
   -d '{"niche":"saas","type":"contrarian","context":"pricing"}'
 ```
 
-Full docs: https://trispur.com/developers
+Full docs: https://www.trispur.com/developers

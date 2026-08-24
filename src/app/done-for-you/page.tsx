@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     description:
       "We write, you approve, clients come. 10–12 posts a month at a fraction of a ghostwriter's price. Apply for early access.",
     type: "website",
-    url: "https://trispur.com/done-for-you",
+    url: "https://www.trispur.com/done-for-you",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/done-for-you" },
+  alternates: { canonical: "https://www.trispur.com/done-for-you" },
 }
 
 const STEPS = [
@@ -33,7 +33,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Done-For-You LinkedIn Content",
-  provider: { "@type": "Organization", name: "Spur AI", url: "https://trispur.com" },
+  provider: { "@type": "Organization", name: "Spur AI", url: "https://www.trispur.com" },
   description:
     "Done-for-you LinkedIn content service for B2B consultants, coaches, and agency owners. We write client-attracting posts; you approve and publish.",
   areaServed: "Worldwide",

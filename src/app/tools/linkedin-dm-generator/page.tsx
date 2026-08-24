@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     description:
       "25 proven LinkedIn DM templates in 5 categories. Copy, paste, and personalize. Free for B2B professionals.",
     type: "website",
-    url: "https://trispur.com/tools/linkedin-dm-generator",
+    url: "https://www.trispur.com/tools/linkedin-dm-generator",
   },
   twitter: {
     card: "summary_large_image",
     title: "25 LinkedIn DM Templates That Get Replies",
     description: "Free LinkedIn message templates for connection requests, follow-ups, and cold outreach.",
   },
-  alternates: { canonical: "https://trispur.com/tools/linkedin-dm-generator" },
+  alternates: { canonical: "https://www.trispur.com/tools/linkedin-dm-generator" },
 }
 
 const dmRules = [

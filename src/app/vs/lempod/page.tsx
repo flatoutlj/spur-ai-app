@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     title: "Spur AI vs Lempod: Which LinkedIn Tool Actually Gets You Clients? (2026)",
     description: "Lempod boosts engagement numbers. Spur AI builds real authority that attracts paying clients. Here's the full comparison.",
     type: "article",
-    url: "https://trispur.com/vs/lempod",
+    url: "https://www.trispur.com/vs/lempod",
   },
-  alternates: { canonical: "https://trispur.com/vs/lempod" },
+  alternates: { canonical: "https://www.trispur.com/vs/lempod" },
 }
 
 const COMPARISON = [
@@ -99,10 +99,10 @@ const jsonLd = {
   "@type": "Article",
   headline: "Spur AI vs Lempod: Which LinkedIn Tool Actually Gets You Clients? (2026)",
   description: "Lempod boosts engagement artificially and risks LinkedIn TOS violations. Spur AI creates real content that builds authority and converts followers into clients.",
-  url: "https://trispur.com/vs/lempod",
+  url: "https://www.trispur.com/vs/lempod",
   datePublished: "2026-07-11",
   dateModified: "2026-07-11",
-  publisher: { "@type": "Organization", name: "Spur AI", url: "https://trispur.com" },
+  publisher: { "@type": "Organization", name: "Spur AI", url: "https://www.trispur.com" },
   author: { "@type": "Organization", name: "Spur AI" },
 }
 

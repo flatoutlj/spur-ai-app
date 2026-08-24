@@ -7,7 +7,7 @@
  *
  * Setup:
  *   npm i @modelcontextprotocol/sdk
- *   export SPUR_API_KEY=spur_sk_...        # get one at https://trispur.com/developers
+ *   export SPUR_API_KEY=spur_sk_...        # get one at https://www.trispur.com/developers
  *   node spur-mcp-server.mjs
  *
  * Then register it with your agent (see mcp/README.md).
@@ -19,11 +19,11 @@ import {
   ListToolsRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js"
 
-const API_BASE = process.env.SPUR_API_BASE || "https://trispur.com"
+const API_BASE = process.env.SPUR_API_BASE || "https://www.trispur.com"
 const API_KEY = process.env.SPUR_API_KEY
 
 if (!API_KEY) {
-  console.error("[spur-mcp] Missing SPUR_API_KEY. Get one at https://trispur.com/developers")
+  console.error("[spur-mcp] Missing SPUR_API_KEY. Get one at https://www.trispur.com/developers")
   process.exit(1)
 }
 

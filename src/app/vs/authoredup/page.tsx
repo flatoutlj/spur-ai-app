@@ -17,9 +17,9 @@ export const metadata: Metadata = {
     description:
       "AuthoredUp formats and analyzes. Spur AI generates. Here's the full comparison for B2B professionals.",
     type: "article",
-    url: "https://trispur.com/vs/authoredup",
+    url: "https://www.trispur.com/vs/authoredup",
   },
-  alternates: { canonical: "https://trispur.com/vs/authoredup" },
+  alternates: { canonical: "https://www.trispur.com/vs/authoredup" },
 }
 
 const COMPARISON = [
@@ -79,10 +79,10 @@ const jsonLd = {
   headline: "Spur AI vs AuthoredUp: Which LinkedIn Tool Is Better? (2026)",
   description:
     "AuthoredUp formats and analyzes your LinkedIn posts. Spur AI generates them with AI. A full comparison for B2B professionals.",
-  url: "https://trispur.com/vs/authoredup",
+  url: "https://www.trispur.com/vs/authoredup",
   datePublished: "2026-07-12",
   dateModified: "2026-07-12",
-  publisher: { "@type": "Organization", name: "Spur AI", url: "https://trispur.com" },
+  publisher: { "@type": "Organization", name: "Spur AI", url: "https://www.trispur.com" },
   author: { "@type": "Organization", name: "Spur AI" },
 }
 

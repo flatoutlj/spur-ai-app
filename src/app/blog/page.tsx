@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     description:
       "Guides on LinkedIn lead generation, personal branding, content strategy, and B2B sales.",
     type: "website",
-    url: "https://trispur.com/blog",
+    url: "https://www.trispur.com/blog",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/blog" },
+  alternates: { canonical: "https://www.trispur.com/blog" },
 }
 
 const POSTS = [
@@ -239,17 +239,17 @@ const jsonLd = {
   "@type": "Blog",
   name: "Spur AI LinkedIn Growth Blog",
   description: "Expert guides on LinkedIn for B2B professionals",
-  url: "https://trispur.com/blog",
+  url: "https://www.trispur.com/blog",
   publisher: {
     "@type": "Organization",
     name: "Spur AI",
-    url: "https://trispur.com",
+    url: "https://www.trispur.com",
   },
   blogPost: POSTS.map((post) => ({
     "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
-    url: `https://trispur.com/blog/${post.slug}`,
+    url: `https://www.trispur.com/blog/${post.slug}`,
   })),
 }
 

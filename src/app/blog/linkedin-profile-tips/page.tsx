@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     description:
       "Turn your LinkedIn profile from a resume into a client-generating machine with these 21 proven tips for B2B professionals.",
     type: "article",
-    url: "https://trispur.com/blog/linkedin-profile-tips",
+    url: "https://www.trispur.com/blog/linkedin-profile-tips",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/blog/linkedin-profile-tips" },
+  alternates: { canonical: "https://www.trispur.com/blog/linkedin-profile-tips" },
 }
 
 const jsonLd = {
@@ -29,10 +29,10 @@ const jsonLd = {
   headline: "21 LinkedIn Profile Tips That Attract Clients in 2026",
   description:
     "Proven LinkedIn profile tips for B2B professionals — optimize every section to turn profile views into inbound leads.",
-  url: "https://trispur.com/blog/linkedin-profile-tips",
+  url: "https://www.trispur.com/blog/linkedin-profile-tips",
   datePublished: "2026-07-11",
   dateModified: "2026-07-11",
-  publisher: { "@type": "Organization", name: "Spur AI", url: "https://trispur.com" },
+  publisher: { "@type": "Organization", name: "Spur AI", url: "https://www.trispur.com" },
   author: { "@type": "Organization", name: "Spur AI" },
 }
 

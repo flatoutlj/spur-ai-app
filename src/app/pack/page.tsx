@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     description:
       "200+ hooks, 8 DM scripts, 40 headline formulas, and a 30-day content calendar. Instant access for $29.",
     type: "website",
-    url: "https://trispur.com/pack",
+    url: "https://www.trispur.com/pack",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/pack" },
+  alternates: { canonical: "https://www.trispur.com/pack" },
 }
 
 const jsonLd = {
@@ -37,7 +37,7 @@ const jsonLd = {
     price: "29.00",
     priceCurrency: "USD",
     availability: "https://schema.org/InStock",
-    url: "https://trispur.com/pack",
+    url: "https://www.trispur.com/pack",
   },
 }
 

@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     title: "How the LinkedIn Algorithm Works in 2026 (And How to Beat It)",
     description: "How LinkedIn decides which posts go viral and the specific actions that maximize distribution in 2026.",
     type: "article",
-    url: "https://trispur.com/blog/linkedin-algorithm",
+    url: "https://www.trispur.com/blog/linkedin-algorithm",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/blog/linkedin-algorithm" },
+  alternates: { canonical: "https://www.trispur.com/blog/linkedin-algorithm" },
 }
 
 const articleSchema = {
@@ -29,10 +29,10 @@ const articleSchema = {
   headline: "How the LinkedIn Algorithm Works in 2026 (And How to Beat It)",
   description: "The LinkedIn algorithm explained — how posts go viral, what kills reach, and what to do in the first 60 minutes after posting.",
   author: { "@type": "Organization", name: "Spur AI" },
-  publisher: { "@type": "Organization", name: "Spur AI", url: "https://trispur.com" },
+  publisher: { "@type": "Organization", name: "Spur AI", url: "https://www.trispur.com" },
   datePublished: "2026-07-11",
   dateModified: "2026-07-11",
-  url: "https://trispur.com/blog/linkedin-algorithm",
+  url: "https://www.trispur.com/blog/linkedin-algorithm",
 }
 
 const faqSchema = {

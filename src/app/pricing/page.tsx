@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     title: "Spur AI Pricing",
     description: "14-day free trial. Cancel anytime.",
     type: "website",
-    url: "https://trispur.com/pricing",
+    url: "https://www.trispur.com/pricing",
   },
-  alternates: { canonical: "https://trispur.com/pricing" },
+  alternates: { canonical: "https://www.trispur.com/pricing" },
 }
 
 const faqs = [

@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     description:
       "12 free copy-paste LinkedIn post templates for B2B professionals. Fill in the blanks and post in minutes.",
     type: "article",
-    url: "https://trispur.com/blog/linkedin-post-templates",
+    url: "https://www.trispur.com/blog/linkedin-post-templates",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/blog/linkedin-post-templates" },
+  alternates: { canonical: "https://www.trispur.com/blog/linkedin-post-templates" },
 }
 
 const jsonLd = {
@@ -31,10 +31,10 @@ const jsonLd = {
   headline: "12 LinkedIn Post Templates That Get Engagement (Copy-Paste, 2026)",
   description:
     "12 free copy-paste LinkedIn post templates for B2B professionals — story, contrarian, how-to, results, and more.",
-  url: "https://trispur.com/blog/linkedin-post-templates",
+  url: "https://www.trispur.com/blog/linkedin-post-templates",
   datePublished: "2026-07-11",
   dateModified: "2026-07-11",
-  publisher: { "@type": "Organization", name: "Spur AI", url: "https://trispur.com" },
+  publisher: { "@type": "Organization", name: "Spur AI", url: "https://www.trispur.com" },
   author: { "@type": "Organization", name: "Spur AI" },
 }
 

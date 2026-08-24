@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     description:
       "What a LinkedIn ghostwriter costs, when it's worth it, and a smarter alternative for consultants who want consistent, client-attracting content.",
     type: "article",
-    url: "https://trispur.com/blog/linkedin-ghostwriting-for-consultants",
+    url: "https://www.trispur.com/blog/linkedin-ghostwriting-for-consultants",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/blog/linkedin-ghostwriting-for-consultants" },
+  alternates: { canonical: "https://www.trispur.com/blog/linkedin-ghostwriting-for-consultants" },
 }
 
 const jsonLd = {
@@ -29,10 +29,10 @@ const jsonLd = {
   headline: "LinkedIn Ghostwriting for Consultants: Do You Really Need to Hire One?",
   description:
     "What a LinkedIn ghostwriter costs, when it's worth it, and a smarter AI-assisted alternative for solo consultants.",
-  url: "https://trispur.com/blog/linkedin-ghostwriting-for-consultants",
+  url: "https://www.trispur.com/blog/linkedin-ghostwriting-for-consultants",
   datePublished: "2026-07-12",
   dateModified: "2026-07-12",
-  publisher: { "@type": "Organization", name: "Spur AI", url: "https://trispur.com" },
+  publisher: { "@type": "Organization", name: "Spur AI", url: "https://www.trispur.com" },
   author: { "@type": "Organization", name: "Spur AI" },
 }
 

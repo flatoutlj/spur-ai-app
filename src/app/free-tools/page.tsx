@@ -17,9 +17,9 @@ export const metadata: Metadata = {
     description:
       "7 free LinkedIn tools: post generator, content calendar, bio generator, headline generator, hooks library, content ideas, and profile optimizer. No signup required.",
     type: "website",
-    url: "https://trispur.com/free-tools",
+    url: "https://www.trispur.com/free-tools",
   },
-  alternates: { canonical: "https://trispur.com/free-tools" },
+  alternates: { canonical: "https://www.trispur.com/free-tools" },
 }
 
 const tools = [
@@ -126,14 +126,14 @@ const itemListJsonLd = {
   "@type": "ItemList",
   name: "Free LinkedIn Tools by Spur AI",
   description: "Free LinkedIn tools for B2B consultants, coaches, and agency owners",
-  url: "https://trispur.com/free-tools",
+  url: "https://www.trispur.com/free-tools",
   numberOfItems: tools.length,
   itemListElement: tools.map((tool, idx) => ({
     "@type": "ListItem",
     position: idx + 1,
     name: tool.title,
     description: tool.description,
-    url: `https://trispur.com${tool.url}`,
+    url: `https://www.trispur.com${tool.url}`,
   })),
 }
 

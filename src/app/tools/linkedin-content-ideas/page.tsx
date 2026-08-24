@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description:
       "Never run out of LinkedIn content again. 150 proven post ideas organized by type — stories, how-tos, contrarian takes, and more.",
     type: "website",
-    url: "https://trispur.com/tools/linkedin-content-ideas",
+    url: "https://www.trispur.com/tools/linkedin-content-ideas",
   },
   twitter: {
     card: "summary_large_image",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
       "Never run out of LinkedIn content. 150 proven post ideas for consultants, coaches, and agency owners.",
   },
   alternates: {
-    canonical: "https://trispur.com/tools/linkedin-content-ideas",
+    canonical: "https://www.trispur.com/tools/linkedin-content-ideas",
   },
 }
 
@@ -39,11 +39,11 @@ const webPageSchema = {
   name: "150 LinkedIn Content Ideas for B2B Professionals in 2026",
   description:
     "150 proven LinkedIn content ideas organized by type for B2B consultants, coaches, and agency owners.",
-  url: "https://trispur.com/tools/linkedin-content-ideas",
+  url: "https://www.trispur.com/tools/linkedin-content-ideas",
   publisher: {
     "@type": "Organization",
     name: "Spur AI",
-    url: "https://trispur.com",
+    url: "https://www.trispur.com",
   },
 }
 

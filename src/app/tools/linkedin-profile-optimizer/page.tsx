@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description:
       "Check off 20 profile elements, get a score out of 100, and learn exactly what to fix to turn your LinkedIn profile into a B2B lead magnet.",
     type: "website",
-    url: "https://trispur.com/tools/linkedin-profile-optimizer",
+    url: "https://www.trispur.com/tools/linkedin-profile-optimizer",
   },
   twitter: {
     card: "summary_large_image",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
       "20-point checklist, live score, and expert tips to turn your LinkedIn profile into a B2B lead magnet.",
   },
   alternates: {
-    canonical: "https://trispur.com/tools/linkedin-profile-optimizer",
+    canonical: "https://www.trispur.com/tools/linkedin-profile-optimizer",
   },
 }
 
@@ -40,7 +40,7 @@ const pageSchema = {
   name: "LinkedIn Profile Optimizer",
   description:
     "A free interactive checklist tool that scores your LinkedIn profile optimization out of 100 and identifies improvements to attract more B2B clients.",
-  url: "https://trispur.com/tools/linkedin-profile-optimizer",
+  url: "https://www.trispur.com/tools/linkedin-profile-optimizer",
   applicationCategory: "BusinessApplication",
   offers: {
     "@type": "Offer",

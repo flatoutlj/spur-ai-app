@@ -89,7 +89,7 @@ const QUICK_LINKS = [
   { label: "Vercel", url: "https://vercel.com/dashboard" },
   { label: "Cloudflare DNS", url: "https://dash.cloudflare.com" },
   { label: "GitHub Repo", url: "https://github.com/flatoutlj/spur-ai-app" },
-  { label: "trispur.com", url: "https://trispur.com" },
+  { label: "trispur.com", url: "https://www.trispur.com" },
 ] as const
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────

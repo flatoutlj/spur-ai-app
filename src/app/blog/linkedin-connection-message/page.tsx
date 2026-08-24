@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     description:
       "15 LinkedIn connection message templates that get accepted — for cold outreach, warm intros, and B2B prospecting.",
     type: "article",
-    url: "https://trispur.com/blog/linkedin-connection-message",
+    url: "https://www.trispur.com/blog/linkedin-connection-message",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/blog/linkedin-connection-message" },
+  alternates: { canonical: "https://www.trispur.com/blog/linkedin-connection-message" },
 }
 
 const jsonLd = {
@@ -29,10 +29,10 @@ const jsonLd = {
   headline: "15 LinkedIn Connection Message Templates That Get Accepted (2026)",
   description:
     "15 LinkedIn connection message templates that actually get accepted — with the psychology behind why each one works.",
-  url: "https://trispur.com/blog/linkedin-connection-message",
+  url: "https://www.trispur.com/blog/linkedin-connection-message",
   datePublished: "2026-07-11",
   dateModified: "2026-07-11",
-  publisher: { "@type": "Organization", name: "Spur AI", url: "https://trispur.com" },
+  publisher: { "@type": "Organization", name: "Spur AI", url: "https://www.trispur.com" },
   author: { "@type": "Organization", name: "Spur AI" },
 }
 

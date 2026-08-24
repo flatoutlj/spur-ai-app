@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description:
       "Copy these 50 proven LinkedIn hooks to stop the scroll. Organized by type for B2B consultants and agency owners.",
     type: "website",
-    url: "https://trispur.com/tools/linkedin-hooks",
+    url: "https://www.trispur.com/tools/linkedin-hooks",
   },
   twitter: {
     card: "summary_large_image",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description: "Stop the scroll with these 50 proven LinkedIn opening lines. Free for B2B professionals.",
   },
   alternates: {
-    canonical: "https://trispur.com/tools/linkedin-hooks",
+    canonical: "https://www.trispur.com/tools/linkedin-hooks",
   },
 }
 

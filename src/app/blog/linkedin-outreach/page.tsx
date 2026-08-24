@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     title: "LinkedIn Outreach: 8 DM Templates That Get Replies (2026)",
     description: "8 LinkedIn DM templates for cold outreach, follow-ups, and warm introductions that actually get responses.",
     type: "article",
-    url: "https://trispur.com/blog/linkedin-outreach",
+    url: "https://www.trispur.com/blog/linkedin-outreach",
     siteName: "Spur AI",
   },
-  alternates: { canonical: "https://trispur.com/blog/linkedin-outreach" },
+  alternates: { canonical: "https://www.trispur.com/blog/linkedin-outreach" },
 }
 
 const articleSchema = {
@@ -30,10 +30,10 @@ const articleSchema = {
   headline: "LinkedIn Outreach: 8 DM Templates That Get Replies (2026 Guide)",
   description: "8 LinkedIn DM templates and outreach strategies that get responses — for cold outreach, follow-ups, and warm introductions.",
   author: { "@type": "Organization", name: "Spur AI" },
-  publisher: { "@type": "Organization", name: "Spur AI", url: "https://trispur.com" },
+  publisher: { "@type": "Organization", name: "Spur AI", url: "https://www.trispur.com" },
   datePublished: "2026-07-11",
   dateModified: "2026-07-11",
-  url: "https://trispur.com/blog/linkedin-outreach",
+  url: "https://www.trispur.com/blog/linkedin-outreach",
 }
 
 const faqSchema = {
