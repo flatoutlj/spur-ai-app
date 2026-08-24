@@ -38,5 +38,19 @@
         }
       ]
     }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://www.trispur.com/api/mcp",
+      "headers": [
+        {
+          "name": "x-api-key",
+          "description": "Spur API key. Get one at https://www.trispur.com/developers",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
   ]
 }
