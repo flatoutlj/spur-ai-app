@@ -1,7 +1,7 @@
 {
   "generated_by": "Claude (autonomous ops agent)",
-  "updated_at": "2026-08-24T18:52:39Z",
-  "headline": "P0 unchanged: prod Anthropic key is invalid, so the 2 AI tools 500. Correction to the previous status: 7 of 9 free tools are STATIC and working fine, and the $29 pack takes money right now with no AI dependency. Real bottleneck underneath the key: zero acquisition for 44 days.",
+  "updated_at": "2026-08-24T19:11:21Z",
+  "headline": "P0 CLEARED: owner supplied a valid Anthropic key; it is live in Vercel prod (Sensitive) and prod was redeployed. Both AI tools verified returning 200 with real generations against www.trispur.com. The product is no longer down. The remaining bottleneck is now unambiguously acquisition: zero signups in 44 days, 0 paying customers.",
   "north_star": "First $1k MRR. Fastest path: $29 one-time pack + $19 Solo, funneled from free tools, marketed to AI-native users.",
   "metrics": {
     "email_captures": 1,
@@ -11,16 +11,6 @@
     "paying_customers": 0
   },
   "needs_owner": [
-    {
-      "id": "anthropic-key",
-      "priority": "P0",
-      "kind": "accounts",
-      "title": "\ud83d\udea8 Give the agent a VALID Anthropic API key \u2014 the whole product is down without it",
-      "why": "The ANTHROPIC_API_KEY in Vercel prod is an 11-char placeholder (a real key is ~108 chars, sk-ant-api03-...). The key in .env.local is full-length but REVOKED (401). Tested both directly against Anthropic = 401 invalid. Result: every generator (all 8 free tools, /api/v1, the MCP server) fails. This explains posts_generated=0. Fix: create a key at console.anthropic.com and paste it to the agent; the agent will add it to Vercel + redeploy.",
-      "value": "Create at https://console.anthropic.com/settings/keys -> paste the sk-ant-... key to the agent",
-      "where": "Agent adds to Vercel prod ANTHROPIC_API_KEY + redeploys",
-      "eta": "3 min"
-    },
     {
       "id": "github-login",
       "priority": "P1",
@@ -77,33 +67,31 @@
     "Built + shipped the API/MCP surface: /api/v1/generate-post (keyed), MCP server, and /developers docs+waitlist page (targets AI builders). Code verified; generation gated on the Anthropic key fix below.",
     "DIAGNOSED a critical outage: prod Anthropic key is invalid, so all AI generation has been failing.",
     "CORRECTED a wrong claim in this file: only 2 of 9 free tools are AI-dependent; the other 7 are static and have been working the whole time.",
-    "VERIFIED the $29 Stripe payment link is live and functional (browser-checked) \u2014 it is NOT blocked by the Anthropic outage.",
+    "VERIFIED the $29 Stripe payment link is live and functional (browser-checked) — it is NOT blocked by the Anthropic outage.",
     "Shipped GenerationFallback: failed generations now capture the lead, route to the 7 working tools, and offer the $29 pack, instead of dead-ending on a red 'Generation failed' box.",
-    "Fixed the design-token layer: globals.css was still the create-next-app default, so gradient-bg (154 uses / 53 files) was undefined and every primary CTA rendered white-on-white."
+    "Fixed the design-token layer: globals.css was still the create-next-app default, so gradient-bg (154 uses / 53 files) was undefined and every primary CTA rendered white-on-white.",
+    "Installed the owner-supplied Anthropic API key: validated it directly against the Anthropic API (200), replaced the 45-day-old placeholder in Vercel prod as a Sensitive var, redeployed prod (aliased to www.trispur.com), and verified /api/tools/generate-post and /api/tools/generate-carousel both return 200 with real generated content. posts_generated should stop being 0."
   ],
   "in_progress": [
-    "BLOCKED on the Anthropic key (P0, owner-only, ~3 min) \u2014 gates the 2 AI tools, /api/v1 and the MCP server.",
+    "BLOCKED on the Anthropic key (P0, owner-only, ~3 min) — gates the 2 AI tools, /api/v1 and the MCP server.",
     "Underneath that: 44 days of zero acquisition. Distribution is the real constraint; the key is a prerequisite for launching."
   ],
   "next_up": [
-    "The moment you paste a valid sk-ant key: agent adds it to Vercel, redeploys, and verifies all generators live.",
+    "Acquisition is now the only bottleneck - the product works. Drive traffic to the two live AI tools.",
     "On your GitHub login: open awesome-list PRs (mahseema/awesome-ai-tools, steven2358/awesome-generative-ai, etc).",
-    "Measure funnel: free tool -> email -> pack/Solo conversion (meaningless until generation works again)."
+    "Measure funnel: free tool -> email -> pack/Solo conversion. This is now measurable for the first time."
   ],
-  "notes": "Biggest finding of the session: the product's core AI generation has been DOWN in production (invalid Anthropic key) - this likely explains zero traction as much as distribution does. Fixing the key is priority #1. Separately: free no-login AI directories have mostly gone paid; FutureTools was a genuine free win; remaining free channels (GitHub PRs, community posts) need your login.",
+  "notes": "The core AI generation outage is FIXED as of this update - the invalid Anthropic key was the single point of failure taking down all AI generators, /api/v1 and the MCP server, and it is now resolved and verified in production. That removes the excuse layer: with the product working, zero traction is now a pure distribution/acquisition problem. Remaining free channels (GitHub awesome-list PRs, Reddit/Show HN/Indie Hackers) still need the owner's logins. Note for the owner: the key was pasted into a chat transcript, so rotate it at console.anthropic.com if that transcript is ever shared.",
   "metrics_updated_at": "2026-08-24T18:45:21.765482+00:00",
   "verified_at_source": {
-    "note": "All values below re-verified live this session, not carried over.",
+    "note": "All values below re-verified live this session, not carried over. AI-generation rows re-verified after the key fix.",
     "site_home": "HTTP 200, 411ms",
-    "ai_generation_prod": "HTTP 500 \u2014 /api/tools/generate-post",
-    "anthropic_key_local": "HTTP 401 invalid (108 chars, correct sk-ant-api03 format = revoked, not malformed)",
-    "anthropic_key_prod": "set in Vercel 45d ago, value hidden, empirically invalid",
-    "stripe_pack_link": "LIVE \u2014 'The LinkedIn Founder Content Pack $29.00' renders and accepts payment",
+    "ai_generation_prod": "HTTP 200 - /api/tools/generate-post returns a real post (5.5s); /api/tools/generate-carousel returns real slides (7.6s)",
+    "anthropic_key_local": "HTTP 200 valid - new owner-supplied key, written to .env.local",
+    "anthropic_key_prod": "replaced this session; Sensitive var in Vercel prod, prod redeployed and verified live",
+    "stripe_pack_link": "LIVE — 'The LinkedIn Founder Content Pack $29.00' renders and accepts payment",
     "tools_working_without_ai": 7,
-    "tools_broken": [
-      "linkedin-post-generator",
-      "linkedin-carousel-generator"
-    ],
+    "tools_broken": [],
     "last_signup": "2026-07-11 (44 days ago)",
     "last_email_capture": "2026-07-11 (44 days ago)",
     "revenue_to_date": "$0 (Stripe keys absent locally; 0 posts ever generated)"
