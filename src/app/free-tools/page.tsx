@@ -382,7 +382,7 @@ export default function FreeToolsPage() {
             Start your free trial →
           </Link>
           <p className="text-blue-200 text-sm mt-4">
-            Plans from $149/mo ·{" "}
+            Plans from $19/mo ·{" "}
             <Link href="/pricing" className="underline hover:text-white">
               See full pricing
             </Link>

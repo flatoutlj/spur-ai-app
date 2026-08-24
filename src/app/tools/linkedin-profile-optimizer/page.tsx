@@ -3,6 +3,7 @@ import Link from "next/link"
 import Script from "next/script"
 import ProfileChecklist from "./ProfileChecklist"
 import EmailCaptureBar from "@/components/tools/EmailCaptureBar"
+import PackBanner from "@/components/tools/PackBanner"
 
 export const metadata: Metadata = {
   title: "Free LinkedIn Profile Optimizer — Score & Checklist (2026) | Spur AI",
@@ -312,6 +313,9 @@ export default function LinkedInProfileOptimizerPage() {
             </div>
           </div>
         </section>
+
+        {/* Content pack cross-sell */}
+        <PackBanner />
 
         {/* Before/After Headlines */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">

@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import DMTemplatesClient from "./DMTemplatesClient"
 import EmailCaptureBar from "@/components/tools/EmailCaptureBar"
+import PackBanner from "@/components/tools/PackBanner"
 
 export const metadata: Metadata = {
   title: "25 LinkedIn Message Templates That Get Replies | Free DM Generator | Spur AI",
@@ -230,6 +231,9 @@ export default function LinkedInDMGeneratorPage() {
           </div>
         </div>
       </section>
+
+      {/* Content pack cross-sell */}
+      <PackBanner />
 
       {/* 3 Rules */}
       <section id="rules" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">

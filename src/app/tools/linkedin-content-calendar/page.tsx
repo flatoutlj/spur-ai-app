@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import LinkedInContentCalendarClient from "./LinkedInContentCalendarClient"
 import EmailCaptureBar from "@/components/tools/EmailCaptureBar"
+import PackBanner from "@/components/tools/PackBanner"
 
 export const metadata: Metadata = {
   title: "Free LinkedIn Content Calendar Generator — Plan 4 Weeks of Posts",
@@ -124,6 +125,9 @@ export default function LinkedInContentCalendarPage() {
               </div>
             </div>
           </section>
+
+          {/* Content pack cross-sell */}
+          <PackBanner />
 
           {/* Example calendar */}
           <section className="py-16 px-4 bg-gray-50">

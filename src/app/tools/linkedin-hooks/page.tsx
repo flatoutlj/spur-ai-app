@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import EmailCaptureBar from "@/components/tools/EmailCaptureBar"
+import PackBanner from "@/components/tools/PackBanner"
 
 export const metadata: Metadata = {
   title: "50 Proven LinkedIn Hooks That Get 10x More Views | Spur AI",
@@ -322,6 +323,9 @@ export default function LinkedInHooksPage() {
           })}
         </div>
       </section>
+
+      {/* Content pack cross-sell */}
+      <PackBanner />
 
       {/* CTA mid-page */}
       <section className="py-14 px-4 sm:px-6 lg:px-8 bg-gray-50">

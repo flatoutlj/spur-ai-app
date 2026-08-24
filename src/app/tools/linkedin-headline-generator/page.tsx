@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import HeadlineGeneratorClient from "./HeadlineGeneratorClient"
 import EmailCaptureBar from "@/components/tools/EmailCaptureBar"
+import PackBanner from "@/components/tools/PackBanner"
 
 export const metadata: Metadata = {
   title: "Free LinkedIn Headline Generator — 5 Formulas That Get You Noticed | Spur AI",
@@ -291,6 +292,9 @@ export default function LinkedInHeadlineGeneratorPage() {
           </div>
         </div>
       </section>
+
+      {/* Content pack cross-sell */}
+      <PackBanner />
 
       {/* 4 Elements */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">

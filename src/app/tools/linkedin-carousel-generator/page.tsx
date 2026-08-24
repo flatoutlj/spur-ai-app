@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import CarouselGeneratorClient from "./CarouselGeneratorClient"
 import EmailCaptureBar from "@/components/tools/EmailCaptureBar"
+import PackBanner from "@/components/tools/PackBanner"
 
 export const metadata: Metadata = {
   title: "Free LinkedIn Carousel Generator (AI, No Signup) | Spur AI",
@@ -101,6 +102,9 @@ export default function CarouselGeneratorPage() {
               </div>
             </div>
           </section>
+
+          {/* Content pack cross-sell */}
+          <PackBanner />
 
           <section className="py-12 px-4 bg-gray-50">
             <div className="max-w-3xl mx-auto">

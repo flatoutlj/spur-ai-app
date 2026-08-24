@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import LinkedInPostGeneratorTool from "./LinkedInPostGeneratorTool"
 import EmailCaptureBar from "@/components/tools/EmailCaptureBar"
+import PackBanner from "@/components/tools/PackBanner"
 
 export const metadata: Metadata = {
   title: "Free AI LinkedIn Post Generator | Spur AI",
@@ -190,6 +191,9 @@ export default function LinkedInPostGeneratorPage() {
           </div>
         </div>
       </section>
+
+      {/* Content pack cross-sell */}
+      <PackBanner />
 
       {/* Sample Posts */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">

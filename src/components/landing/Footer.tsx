@@ -47,7 +47,6 @@ export default function Footer() {
               <li><a href="mailto:hello@trispur.com" className="hover:text-white transition-colors">Contact</a></li>
               <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
-              <li><Link href="/affiliates" className="hover:text-white transition-colors">Affiliates</Link></li>
             </ul>
           </div>
         </div>

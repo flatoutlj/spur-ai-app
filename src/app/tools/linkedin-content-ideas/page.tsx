@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Script from "next/script"
 import EmailCaptureBar from "@/components/tools/EmailCaptureBar"
+import PackBanner from "@/components/tools/PackBanner"
 
 export const metadata: Metadata = {
   title: "150 LinkedIn Content Ideas for B2B Professionals in 2026 | Spur AI",
@@ -338,6 +339,9 @@ export default function LinkedInContentIdeasPage() {
             ))}
           </div>
         </section>
+
+        {/* Content pack cross-sell */}
+        <PackBanner />
 
         {/* How to use these ideas */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">

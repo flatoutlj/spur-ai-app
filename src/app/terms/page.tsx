@@ -23,7 +23,8 @@ export default function TermsPage() {
           </section>
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-3">4. Billing & Trials</h2>
-            <p>We offer 14-day free trials with no credit card required. After your trial, you will be billed the selected plan amount. Cancel anytime to stop future charges. No refunds for partial months.</p>
+            <p>We offer 14-day free trials with no credit card required. After your trial, you will be billed the selected plan amount. Cancel anytime to stop future charges. Subscriptions are not refunded for partial months.</p>
+            <p className="mt-3"><strong>One-time purchases</strong> (including the LinkedIn Founder Content Pack): full refund within 30 days of purchase, no questions asked. Email <a href="mailto:hello@trispur.com" className="text-blue-600 hover:underline">hello@trispur.com</a> and we will refund you.</p>
           </section>
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-3">5. Limitation of Liability</h2>
