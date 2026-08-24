@@ -1,7 +1,7 @@
 {
   "generated_by": "Claude (autonomous ops agent)",
-  "updated_at": "2026-08-24T19:34:37Z",
-  "headline": "P0 RESOLVED \u2014 a valid Anthropic key reached prod and every AI surface is generating again (post, carousel, dashboard, /api/v1, MCP). Remaining blocker: RESEND_API_KEY is still unset, so a $29 buyer would be charged and receive no delivery email.",
+  "updated_at": "2026-08-24T19:47:25Z",
+  "headline": "P0 RESOLVED — a valid Anthropic key reached prod and every AI surface is generating again (post, carousel, dashboard, /api/v1, MCP). Remaining blocker: RESEND_API_KEY is still unset, so a $29 buyer would be charged and receive no delivery email.",
   "north_star": "First $1k MRR. Fastest path: $29 one-time pack + $19 Solo, funneled from free tools, marketed to AI-native users.",
   "metrics": {
     "email_captures": 1,
@@ -13,24 +13,14 @@
   },
   "needs_owner": [
     {
-      "id": "github-login",
-      "priority": "P1",
-      "kind": "accounts",
-      "title": "Log into GitHub in Chrome so the agent can open free awesome-list PRs",
-      "why": "GitHub awesome-list PRs are free, high-quality backlinks to AI-native audiences. The agent can fill and open them in your browser, but you are not logged into GitHub in Chrome (and there is no gh CLI / token).",
-      "value": "Just sign in at github.com in the same Chrome profile, then tell the agent to continue.",
-      "where": "github.com -> Sign in",
-      "eta": "1 min"
-    },
-    {
       "id": "community-posts",
       "priority": "P1",
       "kind": "accounts",
-      "title": "Reddit / Show HN / Indie Hackers posts (need your accounts + CAPTCHAs)",
-      "why": "Highest-intent AI-native distribution. Copy is drafted; the agent can drive the forms once you are logged in and can clear CAPTCHAs.",
+      "title": "Reddit / Show HN / Indie Hackers posts (logged in - need CAPTCHAs + which account)",
+      "why": "You are already signed into Reddit in Chrome, so the login blocker is gone. Two things still need you: (1) CAPTCHAs, which the agent cannot clear, and (2) a decision on whether to post from your personal account or a @trispur brand account - posting a product to r/SideProject or r/SaaS from a personal account with no history reads as spam and gets removed.",
       "value": "See DISTRIBUTION_AI_COMMUNITIES.md",
       "where": "r/SideProject, r/AI_Agents, r/SaaS, Show HN, Indie Hackers, @trispur brand accounts",
-      "eta": "45-60 min with you present"
+      "eta": "30-45 min with you present"
     }
   ],
   "spend_requests": [
@@ -68,7 +58,7 @@
     "Built + shipped the API/MCP surface: /api/v1/generate-post (keyed), MCP server, and /developers docs+waitlist page (targets AI builders). Code verified; generation gated on the Anthropic key fix below.",
     "DIAGNOSED a critical outage: prod Anthropic key is invalid, so all AI generation has been failing.",
     "CORRECTED a wrong claim in this file: only 2 of 9 free tools are AI-dependent; the other 7 are static and have been working the whole time.",
-    "VERIFIED the $29 Stripe payment link is live and functional (browser-checked) \u2014 it is NOT blocked by the Anthropic outage.",
+    "VERIFIED the $29 Stripe payment link is live and functional (browser-checked) — it is NOT blocked by the Anthropic outage.",
     "Shipped GenerationFallback: failed generations now capture the lead, route to the 7 working tools, and offer the $29 pack, instead of dead-ending on a red 'Generation failed' box.",
     "Fixed the design-token layer: globals.css was still the create-next-app default, so gradient-bg (154 uses / 53 files) was undefined and every primary CTA rendered white-on-white.",
     "Installed the owner-supplied Anthropic API key: validated it directly against the Anthropic API (200), replaced the 45-day-old placeholder in Vercel prod as a Sensitive var, redeployed prod (aliased to www.trispur.com), and verified /api/tools/generate-post and /api/tools/generate-carousel both return 200 with real generated content. posts_generated should stop being 0.",
@@ -76,30 +66,34 @@
     "Built and deployed /api/mcp (remote Streamable HTTP MCP), removing the npm dependency for registry listing.",
     "Extracted lib/linkedinPost.ts so REST and MCP share one prompt implementation.",
     "Submitted all 48 URLs to IndexNow; crawled all 48 and found zero SEO defects.",
-    "VERIFIED research: the awesome-ai-tools PR #2022 is dead (0 merges in 90d, repo stale since 2025-12-31) \u2014 do not wait on it."
+    "VERIFIED research: the awesome-ai-tools PR #2022 is dead (0 merges in 90d, repo stale since 2025-12-31) — do not wait on it.",
+    "Opened PR sarat9/awesome-ai-saas#27 adding Spur AI to the Marketing section.",
+    "Opened PR eudk/awesome-ai-tools#565 adding Spur AI to Unsorted category, with their PR template filled in and creator/AI-agent disclosure per their CONTRIBUTING.md.",
+    "Built ops/notify.py: pushes completed tasks to an ntfy topic (phone) and appends them to a durable local ops/activity-log.jsonl, since ntfy.sh drops messages after ~12h.",
+    "Measured real merge rates on all 8 awesome-list targets before spending effort on them."
   ],
   "in_progress": [
     "ONLY blocker left: RESEND_API_KEY unset in Vercel prod. Free tier at resend.com covers it.",
     "Distribution: remote MCP endpoint is live, so the official registry + Smithery no longer need an npm publish. Nothing submitted yet.",
-    "No npm auth and no gh CLI on this machine \u2014 npm publish and awesome-list PRs remain blocked."
+    "No npm auth and no gh CLI on this machine — npm publish and awesome-list PRs remain blocked."
   ],
   "next_up": [
-    "Acquisition is now the only bottleneck - the product works. Drive traffic to the two live AI tools.",
-    "On your GitHub login: open awesome-list PRs (mahseema/awesome-ai-tools, steven2358/awesome-generative-ai, etc).",
-    "Measure funnel: free tool -> email -> pack/Solo conversion. This is now measurable for the first time."
+    "Wait on the 3 open awesome-list PRs: sarat9#27, eudk#565, mahseema#2022. No further action needed.",
+    "Reddit is the next real lever and needs you present for CAPTCHAs + the account decision.",
+    "Measure funnel: free tool -> email -> pack/Solo conversion. Now measurable since generation works."
   ],
-  "notes": "The core AI generation outage is FIXED as of this update - the invalid Anthropic key was the single point of failure taking down all AI generators, /api/v1 and the MCP server, and it is now resolved and verified in production. That removes the excuse layer: with the product working, zero traction is now a pure distribution/acquisition problem. Remaining free channels (GitHub awesome-list PRs, Reddit/Show HN/Indie Hackers) still need the owner's logins. Note for the owner: the key was pasted into a chat transcript, so rotate it at console.anthropic.com if that transcript is ever shared.",
+  "notes": "Distribution finding that changes the plan: of the 8 GitHub awesome-list targets in DISTRIBUTION_TARGETS.md, 4 have NEVER merged a single PR (brandonhimpfen/awesome-linkedin, brandonhimpfen/awesome-content-marketing, jmedia65/awesome-ai-marketing, awesome-saas/awesome-saas) - brandonhimpfen's repos are solo-commit only, so a PR there is wasted effort. Only 2 targets merged anything in 2026: sarat9/awesome-ai-saas (last merge 2026-06-08) and eudk/awesome-ai-tools (2026-06-07); PRs went to both today. mahseema/awesome-ai-tools has a 37% historical merge rate (210 merged / 356 not) but has not merged since 2025-08-26, matching the separate finding that PR #2022 is dead. Treat awesome-lists as low-yield from here. NOTE: the headline names RESEND_API_KEY as a blocker but there is no matching needs_owner entry - it should be added so it shows up in the owner action list.",
   "metrics_updated_at": "2026-08-24T18:45:21.765482+00:00",
   "verified_at_source": {
     "note": "Re-verified live against production at the time of writing.",
-    "anthropic_key_prod": "UPDATED \u2014 all AI endpoints return 200",
+    "anthropic_key_prod": "UPDATED — all AI endpoints return 200",
     "post_generator": "200",
     "carousel_generator": "200",
     "dashboard_generate": "200",
     "api_v1_keyed": "200",
     "api_v1_unkeyed": "401 (correct)",
-    "remote_mcp_endpoint": "https://www.trispur.com/api/mcp \u2014 initialize/tools.list/tools.call verified end-to-end",
-    "resend_api_key_prod": "NOT SET \u2014 pack delivery email and all capture welcome emails silently do not send",
+    "remote_mcp_endpoint": "https://www.trispur.com/api/mcp — initialize/tools.list/tools.call verified end-to-end",
+    "resend_api_key_prod": "NOT SET — pack delivery email and all capture welcome emails silently do not send",
     "false_social_proof": "REMOVED from production (Accenture/Deloitte/500+/12,000+/87%/fake testimonials/fake ticker)",
     "sitemap": "48 URLs, all canonical www, submitted to IndexNow (accepted)",
     "seo_crawl": "48/48 pages: 200, title, meta description, exactly one H1"
@@ -145,18 +139,18 @@
     }
   ],
   "shipped_this_session": [
-    "Design tokens: globals.css was the untouched Next starter, so gradient-bg (154 uses/53 files) was undefined \u2014 every primary CTA rendered white-on-white, including 'Get instant access \u2014 $29'.",
+    "Design tokens: globals.css was the untouched Next starter, so gradient-bg (154 uses/53 files) was undefined — every primary CTA rendered white-on-white, including 'Get instant access — $29'.",
     "Stripe webhook had NO checkout.session.completed case: a $29 payment was recorded nowhere and never delivered. Added recording + delivery email (gated on the missing Resend key).",
     "Pack now delivers the advertised offer: hooks 39->208, formulas 10->40, calendar 7->30 distinct days. 0 duplicates.",
     "Removed fabricated social proof: 'Trusted by Accenture/Deloitte/HubSpot/Shopify/Mailchimp/Stripe', '500+ professionals', '12,000+ posts', '87% more leads', 6 invented testimonials, fake live ticker, 2 fake hero badges.",
     "All 9 tool pages now route to /pack (previously 0 did).",
-    "Canonical URLs: 169 refs pointed at apex which 308s to www \u2014 every canonical named a URL that redirects. Fixed + resubmitted 48 URLs to IndexNow twice.",
+    "Canonical URLs: 169 refs pointed at apex which 308s to www — every canonical named a URL that redirects. Fixed + resubmitted 48 URLs to IndexNow twice.",
     "GenerationFallback: failed generations now capture the lead and offer working alternatives.",
     "Terms had no one-time-purchase refund clause while /pack promised 30-day money back. Added.",
     "Fixed $149/mo vs $19/mo price contradiction and a 404 footer link."
   ],
   "corrections_to_previous_status": [
-    "'All 8 free tools fail' was wrong \u2014 only 2 of 9 are AI-dependent; 7 have worked throughout.",
+    "'All 8 free tools fail' was wrong — only 2 of 9 are AI-dependent; 7 have worked throughout.",
     "The $29 Stripe link was never broken; it accepts payment today.",
     "PR #2022 to mahseema/awesome-ai-tools is very unlikely to merge (0 of last 15 merged, 1,245 open). Do not count it."
   ]
