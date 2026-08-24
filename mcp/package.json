@@ -1,0 +1,49 @@
+{
+  "name": "spur-mcp-server",
+  "version": "1.0.0",
+  "mcpName": "io.github.flatoutlj/spur-ai",
+  "description": "MCP server for Spur AI — generate ready-to-publish LinkedIn posts for B2B audiences from any MCP client.",
+  "type": "module",
+  "main": "spur-mcp-server.mjs",
+  "bin": {
+    "spur-mcp-server": "spur-mcp-server.mjs"
+  },
+  "files": [
+    "spur-mcp-server.mjs",
+    "server.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flatoutlj/spur-ai-app.git",
+    "directory": "mcp"
+  },
+  "homepage": "https://www.trispur.com/developers",
+  "bugs": {
+    "url": "https://github.com/flatoutlj/spur-ai-app/issues"
+  },
+  "author": "Spur AI <hello@trispur.com> (https://www.trispur.com)",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "mcp-server",
+    "linkedin",
+    "content-generation",
+    "copywriting",
+    "b2b",
+    "claude",
+    "ai-agent",
+    "spur"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

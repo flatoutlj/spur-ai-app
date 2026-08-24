@@ -109,25 +109,11 @@ export default function Hero({ email, setEmail }: HeroProps) {
             </div>
           </div>
 
-          <div className="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg border border-gray-100 px-4 py-3 float-animation">
-            <div className="flex items-center gap-2">
-              <span className="text-2xl">🚀</span>
-              <div>
-                <div className="text-xs font-semibold text-gray-800">3 new leads today</div>
-                <div className="text-xs text-gray-400">from your last post</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg border border-gray-100 px-4 py-3 float-animation" style={{ animationDelay: "2s" }}>
-            <div className="flex items-center gap-2">
-              <span className="text-2xl">💰</span>
-              <div>
-                <div className="text-xs font-semibold text-gray-800">$24,000 deal closed</div>
-                <div className="text-xs text-gray-400">prospect from LinkedIn</div>
-              </div>
-            </div>
-          </div>
+          {/* Removed two floating badges that claimed "3 new leads today" and
+              "$24,000 deal closed". There are no leads and no deals — the
+              database has zero paying customers — and fabricated outcome
+              numbers next to a signup form are exactly what this audience is
+              trained to distrust. */}
         </div>
       </div>
     </section>

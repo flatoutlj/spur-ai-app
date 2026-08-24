@@ -1,0 +1,42 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.flatoutlj/spur-ai",
+  "title": "Spur AI",
+  "description": "Generate ready-to-publish LinkedIn posts for B2B audiences with Spur AI.",
+  "version": "1.0.0",
+  "websiteUrl": "https://www.trispur.com/developers",
+  "repository": {
+    "url": "https://github.com/flatoutlj/spur-ai-app",
+    "source": "github",
+    "subfolder": "mcp"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "spur-mcp-server",
+      "version": "1.0.0",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "SPUR_API_KEY",
+          "description": "Spur API key. Get one at https://www.trispur.com/developers",
+          "format": "string",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "SPUR_API_BASE",
+          "description": "Override the Spur API base URL. Defaults to https://www.trispur.com",
+          "format": "string",
+          "isRequired": false,
+          "isSecret": false,
+          "default": "https://www.trispur.com"
+        }
+      ]
+    }
+  ]
+}
